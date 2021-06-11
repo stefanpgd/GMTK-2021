@@ -32,6 +32,21 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Source: https://answers.unity.com/questions/760900/how-can-i-rotate-a-gameobject-around-z-axis-to-fac.html
+        Vector2 mousPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        // Get Angle in Radians
+        float angleRad = Mathf.Atan2(mousPos.y - transform.position.y, mousPos.x - transform.position.x);
+        float angleRad2 = Mathf.Atan2(mousPos.y - m_Soul.position.y, mousPos.x - m_Soul.position.x);
+
+        // Get Angle in Degrees
+        float angleDeg = (180 / Mathf.PI) * angleRad;
+        float angleDeg2 = (180 / Mathf.PI) * angleRad2;
+
+        // Rotate Object
+        transform.rotation = Quaternion.Euler(0, 0, angleDeg);
+        m_Soul.rotation = Quaternion.Euler(0, 0, angleDeg2);
+
         if (Input.GetMouseButtonUp(1))
         {
             if (m_CanSwitch)
