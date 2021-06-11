@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class Trap : MonoBehaviour
+public abstract class Puzzle : MonoBehaviour
 {
     public abstract bool TrapCompleted();
 }

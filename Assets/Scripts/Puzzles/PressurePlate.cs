@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PressurePlate : Trap
+public class PressurePlate : Puzzle
 {
     private PuzzleManager puzzleManager;
 
