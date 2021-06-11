@@ -11,15 +11,24 @@ public class InGameUIFunctionality : MonoBehaviour
     
     void Start()
     {
-        
+
     }
     
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            PausePanel.SetActive(pauseScreenState = !pauseScreenState);
-            //pauseScreenState = !pauseScreenState;
+            /* Disgusting but it works.
+             * PausePanel.SetActive(pauseScreenState = !pauseScreenState);
+            */
+            SetPauseState(!pauseScreenState);
         }
+    }
+
+    public void SetPauseState(bool state)
+    {
+        PausePanel.SetActive(state);
+        GameTime.SetTimeScale(state == true ? 0f : 1f);
+        pauseScreenState = state;
     }
 }
