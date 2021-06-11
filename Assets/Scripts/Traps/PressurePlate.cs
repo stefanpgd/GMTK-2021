@@ -15,6 +15,8 @@ public class PressurePlate : Trap
 
     private void OnTriggerEnter(Collider other)
     {
+        // update fancy sprite
+
         if(other.CompareTag(GameTags.PLAYER))
         {
             IsPressedByPlayer = true;
@@ -23,6 +25,8 @@ public class PressurePlate : Trap
 
     private void OnTriggerExit(Collider other)
     {
+        // update fancy sprite
+
         if(other.CompareTag(GameTags.PLAYER))
         {
             IsPressedByPlayer = false;
