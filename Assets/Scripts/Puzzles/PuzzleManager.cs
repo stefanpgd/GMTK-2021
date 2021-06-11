@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PuzzleManager : MonoBehaviour
 {
-    private List<Puzzle> traps;
+    private List<Puzzle> puzzles;
 
     #region Singleton
     public static PuzzleManager Instance;
@@ -17,15 +17,15 @@ public class PuzzleManager : MonoBehaviour
     }
     #endregion
 
-    public void AddTrap(Puzzle trap) => traps.Add(trap);
+    public void AddTrap(Puzzle puzzle) => puzzles.Add(puzzle);
 
     public bool AreAllTrapsCompleted()
     {
         bool areAllTrapsCompleted = true;
 
-        foreach(Puzzle trap in traps)
+        foreach(Puzzle puzzle in puzzles)
         {
-            if(!trap.TrapCompleted())
+            if(!puzzle.TrapCompleted())
             {
                 areAllTrapsCompleted = false;
             }
