@@ -3,7 +3,16 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Enemy
+  - Projectile
+  - Weapon
+  - Wall
+  - GhostWall
+  - Puzzle
+  - ExitDoor
+  - Body
+  - Soul
   layers:
   - Default
   - TransparentFX
