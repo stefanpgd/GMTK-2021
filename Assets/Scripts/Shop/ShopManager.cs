@@ -29,7 +29,7 @@ public class ShopManager : MonoBehaviour
             switch(item.Type)
             {
                 case ItemType.HealthUpgrade:
-                    //wajow upgrade de player's health, wie had dat verwacht
+                    PlayerHealth.Instance.UpdateMaxHealth(100);
                     break;
             }
 
