@@ -8,8 +8,11 @@ public class LevelSwitchManager : MonoBehaviour
     public static LevelSwitchManager Instance;
 
     [SerializeField] List<GameObject> m_levels;
+    [SerializeField] private Animator shopAnimator;
 
     GameObject m_currentlevel;
+
+    private string nextLevelToLoad;
 
     void Awake()
     {
@@ -34,13 +37,22 @@ public class LevelSwitchManager : MonoBehaviour
         m_currentlevel = m_levels[0];
     }
 
-    public void LoadLevel(string _levelname)
+    public void LevelFinished(string nextLevel)
     {
         m_currentlevel.SetActive(false);
 
-        for (int l = 0; l < m_levels.Count; l++)
+        nextLevelToLoad = nextLevel;
+        shopAnimator.SetTrigger("SlideIn");
+    }
+
+    // Shop Manager calls the 'LoadNextLevel' whenever the Exit Button is pressed
+    public void LoadNextLevel()
+    {
+        shopAnimator.SetTrigger("SlideOut");
+
+        for(int l = 0; l < m_levels.Count; l++)
         {
-            if (m_levels[l].name == _levelname)
+            if(m_levels[l].name == nextLevelToLoad)
             {
                 m_levels[l].SetActive(true);
                 m_currentlevel = m_levels[l];

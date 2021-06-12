@@ -1,8 +1,12 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShopManager : MonoBehaviour
 {
+    [SerializeField] private Button exitShopButton;
+
     private UserMetricsService userMetricsService;
+    private LevelSwitchManager levelSwitchManager;
 
     #region Singleton
     public static ShopManager Instance;
@@ -18,6 +22,14 @@ public class ShopManager : MonoBehaviour
     private void Start()
     {
         userMetricsService = UserMetricsService.Instance;
+        levelSwitchManager = LevelSwitchManager.Instance;
+
+        exitShopButton.onClick.AddListener(levelSwitchManager.LoadNextLevel);
+    }
+
+    private void OnDestroy()
+    {
+        exitShopButton.onClick.RemoveListener(levelSwitchManager.LoadNextLevel);
     }
 
     public bool PurchaseItem(Item item)

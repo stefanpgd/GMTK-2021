@@ -35,7 +35,7 @@ public class ExitDoor : MonoBehaviour
             if(bodyIsOnDoor && soulIsOnDoor)
             {
                 Debug.Log("Level Completed, go to next level");
-                LevelSwitchManager.Instance.LoadLevel(levelToSwitchTo);
+                LevelSwitchManager.Instance.LevelFinished(levelToSwitchTo);
             }
         }
     }
