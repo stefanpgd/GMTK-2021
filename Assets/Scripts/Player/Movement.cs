@@ -27,6 +27,7 @@ public class Movement : MonoBehaviour
         m_SwitchCooldown = new Timer(m_SwitchCooldownTime);
     }
 
+    /*
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Wall"))
@@ -38,6 +39,7 @@ public class Movement : MonoBehaviour
         if (other.CompareTag("Wall"))
             m_CanSwitch = true;
     }
+    */
 
     // Update is called once per frame
     void Update()

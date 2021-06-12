@@ -24,7 +24,7 @@ public class PressurePlate : Puzzle
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag(GameTags.BODY) || other.CompareTag(GameTags.SOUL))
+        if(other.CompareTag(GameTags.BODY) /*|| other.CompareTag(GameTags.SOUL)*/)
         {
             meshRenderer.material = puzzleCompleted;
             IsPressedByPlayer = true;
