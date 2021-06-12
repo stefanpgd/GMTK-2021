@@ -656,6 +656,18 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 50845991}
+    - target: {fileID: 1957908151552649229, guid: 838956b7b515dd64da35cea2b32f3ad6, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 304
+      objectReference: {fileID: 0}
+    - target: {fileID: 1957908151552649229, guid: 838956b7b515dd64da35cea2b32f3ad6, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 94
+      objectReference: {fileID: 0}
+    - target: {fileID: 1957908151552649229, guid: 838956b7b515dd64da35cea2b32f3ad6, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6463588906729536937, guid: 838956b7b515dd64da35cea2b32f3ad6, type: 3}
       propertyPath: m_Name
       value: InGameUI_Panel
@@ -843,6 +855,22 @@ PrefabInstance:
     - target: {fileID: 6463588906729536949, guid: 838956b7b515dd64da35cea2b32f3ad6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6989493553456059400, guid: 838956b7b515dd64da35cea2b32f3ad6, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6989493553456059400, guid: 838956b7b515dd64da35cea2b32f3ad6, type: 3}
+      propertyPath: m_Color.b
+      value: 0.7264151
+      objectReference: {fileID: 0}
+    - target: {fileID: 6989493553456059400, guid: 838956b7b515dd64da35cea2b32f3ad6, type: 3}
+      propertyPath: m_Color.g
+      value: 0.7264151
+      objectReference: {fileID: 0}
+    - target: {fileID: 6989493553456059400, guid: 838956b7b515dd64da35cea2b32f3ad6, type: 3}
+      propertyPath: m_Color.r
+      value: 0.7264151
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 838956b7b515dd64da35cea2b32f3ad6, type: 3}
