@@ -86,10 +86,10 @@ public class AI : MonoBehaviour
 
             if (bodyHealth <= 0)
             {
-                SwitchColours();
-
                 attackBody = false;
                 isSoul = true;
+
+                SwitchColours();
             }
         }
 
@@ -101,6 +101,7 @@ public class AI : MonoBehaviour
             {
                 //Call enemy manager who keeps track of all enemies
                 //Destroy enemy object
+                Destroy(gameObject);
             }
         }
     }
@@ -123,7 +124,7 @@ public class AI : MonoBehaviour
     {
         if(other.tag == "Projectile")
         {
-            Destroy(other);
+            Destroy(other.gameObject);
             TakeDamage(GameVariables.PROJECTILE_DAMAGE);
         }
         else if(other.tag == "Weapon")
