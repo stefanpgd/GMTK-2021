@@ -16,7 +16,9 @@ public class PuzzleManager : MonoBehaviour
     }
     #endregion
     
-    public void AddTrap(Puzzle puzzle) => puzzles.Add(puzzle);
+    public void AddPuzzle(Puzzle puzzle) => puzzles.Add(puzzle);
+
+    public void RemovePuzzle(Puzzle puzzle) => puzzles.Remove(puzzle);
 
     public bool AreAllPuzzlesCompleted()
     {

@@ -12,16 +12,19 @@ public class PressurePlate : Puzzle
     private void Start()
     {
         puzzleManager = PuzzleManager.Instance;
-
-        puzzleManager.AddTrap(this);
+        puzzleManager.AddPuzzle(this);
 
         meshRenderer.material = puzzleNotCompleted;
     }
 
+    private void OnDisable()
+    {
+        puzzleManager.RemovePuzzle(this);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        // update fancy sprite
-        if(other.CompareTag(GameTags.BODY) || other.CompareTag(GameTags.SOUL))
+        if(other.CompareTag(GameTags.BODY) /*|| other.CompareTag(GameTags.SOUL)*/)
         {
             meshRenderer.material = puzzleCompleted;
             IsPressedByPlayer = true;

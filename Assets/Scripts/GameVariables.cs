@@ -7,9 +7,9 @@ public static class GameVariables
     public const int START_MAX_HEALTH = 100;
 
     // Player Weapons
-    public const int SWORD_DAMAGE = -5;
-    public const int PROJECTILE_DAMAGE = -10;
+    public const int SWORD_DAMAGE = 5;
+    public const int PROJECTILE_DAMAGE = 10;
 
     // Enemy Damage
-    public const int ENEMY_DAMAGE = -5;
+    public const int ENEMY_DAMAGE = 5;
 }
