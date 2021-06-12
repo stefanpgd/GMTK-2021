@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class AI : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer m_SpriteRenderer;
-
+    private Collider collider;
     //
     public NavMeshAgent agent;
 
@@ -19,7 +19,8 @@ public class AI : MonoBehaviour
 
     //
     public float bodyHealth;
-    public float ghostHealth;
+    public float soulHealth;
+    public float soulSpeed;
     //
     public bool attackBody; //if true attacks body, if false attacks soul
     public bool isSoul; //if true enemy is in soul form, if false enemy is in body form
@@ -33,6 +34,7 @@ public class AI : MonoBehaviour
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        collider = GetComponent<Collider>();
     }
 
     void Update()
@@ -85,7 +87,11 @@ public class AI : MonoBehaviour
 
     private void ChaseSoul()
     {
-        agent.SetDestination(playerSoul.position);
+        //agent.SetDestination(playerSoul.position);
+
+        //float speed = soulSpeed * Time.deltaTime;
+        transform.position = Vector3.MoveTowards(transform.position, playerSoul.position, soulSpeed);
+
 
         if (transform.position.x > playerSoul.position.x)
         {
@@ -117,9 +123,9 @@ public class AI : MonoBehaviour
 
         else if(isSoul == true)
         {
-            ghostHealth -= amount;
+            soulHealth -= amount;
 
-            if (ghostHealth <= 0)
+            if (soulHealth <= 0)
             {
                 //Call enemy manager who keeps track of all enemies
                 //Destroy enemy object
@@ -134,10 +140,12 @@ public class AI : MonoBehaviour
         if (isSoul == false)
         {
             transform.GetComponentInChildren<SpriteRenderer>().sprite = bodySprite;
+            collider.isTrigger = true;
         }
         else if (isSoul == true)
         {
             transform.GetComponentInChildren<SpriteRenderer>().sprite = soulSprite;
+            collider.isTrigger = false;
         }
 
     }
