@@ -27,6 +27,8 @@ public class AI : MonoBehaviour
 
     private void Awake()
     {
+        collider = GetComponent<Collider>();
+
         SwitchColours();
         UpdatePosition();
     }
@@ -34,7 +36,6 @@ public class AI : MonoBehaviour
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        collider = GetComponent<Collider>();
     }
 
     void Update()
@@ -147,7 +148,6 @@ public class AI : MonoBehaviour
             transform.GetComponentInChildren<SpriteRenderer>().sprite = soulSprite;
             collider.isTrigger = false;
         }
-
     }
 
     private void OnTriggerEnter(Collider other)
