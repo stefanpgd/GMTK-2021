@@ -1,19 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelSwitchManager : MonoBehaviour
 {
     public static LevelSwitchManager Instance;
 
     [SerializeField] List<GameObject> m_levels;
-    
-    GameObject m_currentlevel;
 
+    GameObject m_currentlevel;
 
     void Awake()
     {
-        if(Instance == null)
+        if (Instance == null)
         {
             Instance = this;
         }
@@ -40,7 +40,7 @@ public class LevelSwitchManager : MonoBehaviour
 
         for (int l = 0; l < m_levels.Count; l++)
         {
-            if(m_levels[l].name == _levelname)
+            if (m_levels[l].name == _levelname)
             {
                 m_levels[l].SetActive(true);
                 m_currentlevel = m_levels[l];
