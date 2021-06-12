@@ -440,7 +440,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1526675448, guid: 730edb986c0d5b74cb30534c82eddde5, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3911069862813021093, guid: 730edb986c0d5b74cb30534c82eddde5, type: 3}
       propertyPath: m_Enabled
@@ -6126,22 +6126,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 741426597}
     m_Modifications:
     - target: {fileID: 3911069862813021094, guid: 730edb986c0d5b74cb30534c82eddde5, type: 3}
-      propertyPath: m_Door
-      value: 
-      objectReference: {fileID: 1358016244}
-    - target: {fileID: 3911069862813021094, guid: 730edb986c0d5b74cb30534c82eddde5, type: 3}
-      propertyPath: m_Open
-      value: 
-      objectReference: {fileID: 21300000, guid: 1fbaad780a995f14a86be2ddfb29fdf1, type: 3}
-    - target: {fileID: 3911069862813021094, guid: 730edb986c0d5b74cb30534c82eddde5, type: 3}
-      propertyPath: m_Closed
-      value: 
-      objectReference: {fileID: 21300000, guid: 113112c8ac0a46f4e97bdd8bad3ea8e4, type: 3}
-    - target: {fileID: 3911069862813021094, guid: 730edb986c0d5b74cb30534c82eddde5, type: 3}
-      propertyPath: m_PlayerAnimator
-      value: 
-      objectReference: {fileID: 2097880869}
-    - target: {fileID: 3911069862813021094, guid: 730edb986c0d5b74cb30534c82eddde5, type: 3}
       propertyPath: playerEndAnimator
       value: 
       objectReference: {fileID: 2097880869}
@@ -7236,11 +7220,6 @@ MeshFilter:
 Transform:
   m_CorrespondingSourceObject: {fileID: 8508434092057739943, guid: 5aa6870183a86cb4da1c9d33d0933349, type: 3}
   m_PrefabInstance: {fileID: 1968661224}
-  m_PrefabAsset: {fileID: 0}
---- !u!212 &1358016244 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 1526675449, guid: 730edb986c0d5b74cb30534c82eddde5, type: 3}
-  m_PrefabInstance: {fileID: 810533251}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1453434518 stripped
 Transform:
