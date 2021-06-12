@@ -393,6 +393,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 549869540}
     - target: {fileID: 7144023784601510537, guid: 5044029853e3ff543b6410a4e9962dd4, type: 3}
+      propertyPath: m_Blood
+      value: 
+      objectReference: {fileID: 2002940431061111726, guid: 1d9b66bfd70102540ae00fb803ca5720, type: 3}
+    - target: {fileID: 7144023784601510537, guid: 5044029853e3ff543b6410a4e9962dd4, type: 3}
       propertyPath: soulSpeed
       value: 0.01
       objectReference: {fileID: 0}
@@ -2849,6 +2853,10 @@ PrefabInstance:
       propertyPath: agent
       value: 
       objectReference: {fileID: 463004151}
+    - target: {fileID: 7144023784601510537, guid: 5044029853e3ff543b6410a4e9962dd4, type: 3}
+      propertyPath: m_Blood
+      value: 
+      objectReference: {fileID: 2002940431061111726, guid: 1d9b66bfd70102540ae00fb803ca5720, type: 3}
     - target: {fileID: 7144023784601510537, guid: 5044029853e3ff543b6410a4e9962dd4, type: 3}
       propertyPath: soulSpeed
       value: 0.01

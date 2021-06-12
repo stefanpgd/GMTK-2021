@@ -6,6 +6,8 @@ using UnityEngine.AI;
 public class AI : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer m_SpriteRenderer;
+    [SerializeField] private GameObject m_Blood;
+
     private Collider collider;
     private Animator m_Animator;
 
@@ -112,7 +114,10 @@ public class AI : MonoBehaviour
     {
         Debug.Log("lol enemy ai heeft een projectile gegeten");
 
-        if(isSoul == false)
+        GameObject effect = Instantiate(m_Blood, transform.position, m_Blood.transform.rotation);
+        Destroy(effect, 1f);
+
+        if (isSoul == false)
         {
             bodyHealth -= amount;
 
