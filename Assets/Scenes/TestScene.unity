@@ -313,6 +313,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 42881614}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!212 &67652807 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 7144023786060314121, guid: 5044029853e3ff543b6410a4e9962dd4, type: 3}
+  m_PrefabInstance: {fileID: 427297251}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &170178336 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3911069862813021095, guid: 730edb986c0d5b74cb30534c82eddde5, type: 3}
@@ -2240,6 +2245,10 @@ PrefabInstance:
       propertyPath: playerSoul
       value: 
       objectReference: {fileID: 1453434518}
+    - target: {fileID: 7144023784601510537, guid: 5044029853e3ff543b6410a4e9962dd4, type: 3}
+      propertyPath: m_SpriteRenderer
+      value: 
+      objectReference: {fileID: 67652807}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5044029853e3ff543b6410a4e9962dd4, type: 3}
 --- !u!1 &427297252 stripped
@@ -2842,6 +2851,10 @@ PrefabInstance:
       propertyPath: playerSoul
       value: 
       objectReference: {fileID: 1453434518}
+    - target: {fileID: 7144023784601510537, guid: 5044029853e3ff543b6410a4e9962dd4, type: 3}
+      propertyPath: m_SpriteRenderer
+      value: 
+      objectReference: {fileID: 1103400382}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5044029853e3ff543b6410a4e9962dd4, type: 3}
 --- !u!1 &980547196 stripped
@@ -2945,6 +2958,11 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!212 &1103400382 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 7144023786060314121, guid: 5044029853e3ff543b6410a4e9962dd4, type: 3}
+  m_PrefabInstance: {fileID: 920470720}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1185183170
 GameObject:
   m_ObjectHideFlags: 0
