@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 8508434091921061950}
   - component: {fileID: 1792266196}
   - component: {fileID: 5195233370662518082}
+  - component: {fileID: 9089360635089295065}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -144,6 +145,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponAnimator: {fileID: 1391998279}
   attackCooldownTime: 0.25
+--- !u!114 &9089360635089295065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8508434091921061951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a13e1428807df5343809c2376453b11c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bodyCollider: {fileID: 6147131590369718074}
+  soulCollider: {fileID: 789757167883235033}
 --- !u!1 &8508434092057739947
 GameObject:
   m_ObjectHideFlags: 0
@@ -159,6 +174,7 @@ GameObject:
   - component: {fileID: 8508434092057739946}
   - component: {fileID: 8508434092057739937}
   - component: {fileID: 1391998279}
+  - component: {fileID: 6147131590369718074}
   m_Layer: 0
   m_Name: Body
   m_TagString: Body
@@ -295,6 +311,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6147131590369718074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8508434092057739947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 760d06fd585d0f24e849c10eff87ae42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8508434092521452559
 GameObject:
   m_ObjectHideFlags: 0
@@ -517,6 +545,7 @@ GameObject:
   - component: {fileID: 8508434093306402226}
   - component: {fileID: 8508434093306402191}
   - component: {fileID: 8508434093306402190}
+  - component: {fileID: 789757167883235033}
   m_Layer: 0
   m_Name: Soul
   m_TagString: Soul
@@ -629,3 +658,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
+--- !u!114 &789757167883235033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8508434093306402227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 760d06fd585d0f24e849c10eff87ae42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

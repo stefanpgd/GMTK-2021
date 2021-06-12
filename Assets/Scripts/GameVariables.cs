@@ -4,12 +4,12 @@
 public static class GameVariables
 {
     // Player Health
-    public const float START_MAX_HEALTH = 100f;
+    public const int START_MAX_HEALTH = 100;
 
     // Player Weapons
-    public const float SWORD_DAMAGE = 5f;
-    public const float PROJECTILE_DAMAGE = 10f;
+    public const int SWORD_DAMAGE = -5;
+    public const int PROJECTILE_DAMAGE = -10;
 
     // Enemy Damage
-    public const float ENEMY_DAMAGE = 5f;
+    public const int ENEMY_DAMAGE = -5;
 }
