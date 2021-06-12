@@ -23,14 +23,21 @@ public class ShopManager : MonoBehaviour
     public bool PurchaseItem(Item item)
     {
         int currentScore = userMetricsService.GetMetric(MetricType.Score);
-        bool purchaseSuccesful = false;
 
-        switch(item.Type)
+        if(item.ItemCost >= currentScore)
         {
-            case ItemType.HealthUpgrade:
-                break;
-        }
+            switch(item.Type)
+            {
+                case ItemType.HealthUpgrade:
+                    //wajow upgrade de player's health, wie had dat verwacht
+                    break;
+            }
 
-        return purchaseSuccesful;
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }
