@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Health Upgrade
   m_EditorClassIdentifier: 
   Type: 0
-  ItemCost: 0
   ItemTitle: Kinda Epic Potion
+  ItemDescription: Met dit lekkere drankie krijg je gewoon meer health pick. Is gewoon
+    goeie
+  ItemCost: 0
   ItemImage: {fileID: 21300000, guid: 779f3049113a9af4cb62b84bdc9b0c24, type: 3}
