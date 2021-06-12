@@ -33,7 +33,7 @@ public class PressurePlate : Puzzle
         }
     }
 
-    public override bool TrapCompleted()
+    public override bool IsPuzzleCompleted()
     {
         return IsPressedByPlayer;
     }

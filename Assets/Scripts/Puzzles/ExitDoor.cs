@@ -1,7 +1,9 @@
+using TMPro;
 using UnityEngine;
 
 public class ExitDoor : MonoBehaviour
 {
+    [SerializeField] private TextMeshProUGUI stateText;
     private PuzzleManager puzzleManager;
 
     private bool doorIsOpen = false;
@@ -14,13 +16,18 @@ public class ExitDoor : MonoBehaviour
     private void Update()
     {
         // Check if Puzzles are done and if enemies are dead
-
         if(!doorIsOpen)
         {
-            if(puzzleManager.AreAllTrapsCompleted() /* and all enemies are dead */)
+            stateText.text = "Exit Door Closed";
+
+            if(puzzleManager.AreAllPuzzlesCompleted() /* and all enemies are dead */)
             {
                 doorIsOpen = true;
             }
+        }
+        else
+        {
+            stateText.text = "Exit Door Open";
         }
     }
 

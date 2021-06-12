@@ -2,5 +2,5 @@ using UnityEngine;
 
 public abstract class Puzzle : MonoBehaviour
 {
-    public abstract bool TrapCompleted();
+    public abstract bool IsPuzzleCompleted();
 }

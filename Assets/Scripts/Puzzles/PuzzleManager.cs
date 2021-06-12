@@ -19,13 +19,13 @@ public class PuzzleManager : MonoBehaviour
 
     public void AddTrap(Puzzle puzzle) => puzzles.Add(puzzle);
 
-    public bool AreAllTrapsCompleted()
+    public bool AreAllPuzzlesCompleted()
     {
         bool areAllTrapsCompleted = true;
 
         foreach(Puzzle puzzle in puzzles)
         {
-            if(!puzzle.TrapCompleted())
+            if(!puzzle.IsPuzzleCompleted())
             {
                 areAllTrapsCompleted = false;
             }
