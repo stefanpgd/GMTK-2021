@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class GhostPressurePlate : Puzzle
+public class SoulPressurePlate : Puzzle
 {
     [SerializeField] private MeshRenderer meshRenderer;
     [SerializeField] private Material puzzleNotCompleted;
