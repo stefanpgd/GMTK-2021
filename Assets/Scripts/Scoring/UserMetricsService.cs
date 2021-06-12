@@ -12,7 +12,7 @@ public class UserMetricsService : MonoBehaviour
     public static UserMetricsService Instance;
     private void Awake()
     {
-        if(Instance != null)
+        if(Instance == null)
         {
             Instance = this;
         }
