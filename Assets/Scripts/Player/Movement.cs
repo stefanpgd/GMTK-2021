@@ -105,6 +105,7 @@ public class Movement : MonoBehaviour
                     m_IsSoul = !m_IsSoul;
                     m_HasSwitched = true;
 
+                    //Sword guy wordt soul
                     if (m_IsSoul)
                     {
                         transform.GetComponent<MeshRenderer>().material = m_SoulColor;
@@ -114,12 +115,15 @@ public class Movement : MonoBehaviour
                         m_Soul.GetComponent<BoxCollider>().isTrigger = false;
 
                         m_BodySprite.sprite = m_SwordSoul;
+                        m_BodySprite.color = new Color(255, 255, 255, 0.7f);
                         m_SoulSprite.sprite = m_GunBody;
+                        m_SoulSprite.color = new Color(255, 255, 255, 1f);
 
                         m_Soul.transform.gameObject.tag = "Body";
                         transform.gameObject.tag = "Soul";
                     }
 
+                    //Gun guy wordt soul
                     else
                     {
                         transform.GetComponent<MeshRenderer>().material = m_BodyColor;
@@ -129,7 +133,9 @@ public class Movement : MonoBehaviour
                         m_Soul.GetComponent<BoxCollider>().isTrigger = true;
 
                         m_BodySprite.sprite = m_SwordBody;
+                        m_BodySprite.color = new Color(255, 255, 255, 1f);
                         m_SoulSprite.sprite = m_GunSoul;
+                        m_SoulSprite.color = new Color(255, 255, 255, 0.7f);
 
                         m_Soul.transform.gameObject.tag = "Soul";
                         transform.gameObject.tag = "Body";

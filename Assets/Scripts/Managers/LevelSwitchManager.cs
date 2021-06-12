@@ -46,7 +46,7 @@ public class LevelSwitchManager : MonoBehaviour
 
         for(int l = 0; l < m_levels.Count; l++)
         {
-            if(m_levels[l].name == nextLevelToLoad)
+            if(m_levels[l].name == nextLevelToLoad) 
             {
                 m_levels[l].SetActive(true);
                 m_currentlevel = m_levels[l];
