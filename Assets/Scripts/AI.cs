@@ -7,6 +7,8 @@ public class AI : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer m_SpriteRenderer;
     private Collider collider;
+    private Animator m_Animator;
+
     //
     public NavMeshAgent agent;
 
@@ -36,6 +38,7 @@ public class AI : MonoBehaviour
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        m_Animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -117,6 +120,7 @@ public class AI : MonoBehaviour
             {
                 attackBody = false;
                 isSoul = true;
+                m_Animator.SetTrigger("Soul");
 
                 SwitchColours();
             }
@@ -141,12 +145,12 @@ public class AI : MonoBehaviour
         if (isSoul == false)
         {
             transform.GetComponentInChildren<SpriteRenderer>().sprite = bodySprite;
-            collider.isTrigger = true;
+            //collider.isTrigger = true;
         }
         else if (isSoul == true)
         {
             transform.GetComponentInChildren<SpriteRenderer>().sprite = soulSprite;
-            collider.isTrigger = false;
+            //collider.isTrigger = false;
         }
     }
 
