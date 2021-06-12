@@ -5,6 +5,7 @@ public class PlayerMelee : MonoBehaviour
 {
     [SerializeField] private Animator weaponAnimator;
     [SerializeField] private float attackCooldownTime;
+    [SerializeField] private AudioSource m_Slash;
 
     private Timer attackCooldown;   // the (cooldown) time between slashes   
 
@@ -20,6 +21,7 @@ public class PlayerMelee : MonoBehaviour
             if(attackCooldown.Expired)
             {
                 Attack();
+                m_Slash.Play();
             }
         }
     }
