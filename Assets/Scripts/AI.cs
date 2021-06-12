@@ -5,6 +5,8 @@ using UnityEngine.AI;
 
 public class AI : MonoBehaviour
 {
+    [SerializeField] private SpriteRenderer m_SpriteRenderer;
+
     //
     public NavMeshAgent agent;
 
@@ -69,11 +71,31 @@ public class AI : MonoBehaviour
     private void ChaseBody()
     {
         agent.SetDestination(playerBody.position);
+
+        if (transform.position.x > playerBody.position.x)
+        {
+            m_SpriteRenderer.flipX = false;
+        }
+
+        else
+        {
+            m_SpriteRenderer.flipX = true;
+        }
     }
 
     private void ChaseSoul()
     {
         agent.SetDestination(playerSoul.position);
+
+        if (transform.position.x > playerSoul.position.x)
+        {
+            m_SpriteRenderer.flipX = false;
+        }
+
+        else
+        {
+            m_SpriteRenderer.flipX = true;
+        }
     }
 
     private void TakeDamage(float amount)

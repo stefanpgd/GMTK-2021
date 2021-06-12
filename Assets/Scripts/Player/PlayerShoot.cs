@@ -6,6 +6,7 @@ public class PlayerShoot : MonoBehaviour
     [SerializeField] private GameObject projectile;
     [SerializeField] private Transform firePoint;
     [SerializeField] private float timeBetweenShots;
+    [SerializeField] private AudioSource m_Shoot;
 
     private Timer shootDelay;
 
@@ -21,6 +22,7 @@ public class PlayerShoot : MonoBehaviour
             if(shootDelay.Expired)
             {
                 FireProjectile();
+                m_Shoot.Play();
             }
         }
     }
