@@ -12,11 +12,11 @@ public class Movement : MonoBehaviour
 
     private bool m_IsSoul;
     private float m_LastPosition;
+    private Camera m_MainCamera;
 
-    // Start is called before the first frame update
     void Start()
     {
-        
+        m_MainCamera = Camera.main;
     }
 
     private void OnTriggerStay(Collider other)
@@ -33,7 +33,7 @@ public class Movement : MonoBehaviour
     void Update()
     {
         // Source: https://answers.unity.com/questions/760900/how-can-i-rotate-a-gameobject-around-z-axis-to-fac.html
-        Vector2 mousPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 mousPos = m_MainCamera.ScreenToWorldPoint(Input.mousePosition);
 
         // Get Angle in Radians
         float angleRad = Mathf.Atan2(mousPos.y - transform.position.y, mousPos.x - transform.position.x);
