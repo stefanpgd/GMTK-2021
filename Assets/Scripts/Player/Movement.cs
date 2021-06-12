@@ -19,12 +19,14 @@ public class Movement : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        m_CanSwitch = false;
+        if (other.CompareTag("Wall"))
+            m_CanSwitch = false;
     }
 
     private void OnTriggerExit(Collider other)
     {
-        m_CanSwitch = true;
+        if (other.CompareTag("Wall"))
+            m_CanSwitch = true;
     }
 
     // Update is called once per frame
