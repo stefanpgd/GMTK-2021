@@ -5,13 +5,20 @@ using UnityEngine;
 public class InGameUIFunctionality : MonoBehaviour
 {
     // Variables
+    [Header("IDK")]
+    [SerializeField] private GameObject bodyUI;
+    private bool bodyState = true;
+    [SerializeField] private GameObject soulUI;
+
+    [Space(10)]
+
     [SerializeField] private GameObject PausePanel;
 
     private bool pauseScreenState = false;
     
     void Start()
     {
-
+        soulUI.SetActive(false);
     }
     
     void Update()
@@ -30,5 +37,13 @@ public class InGameUIFunctionality : MonoBehaviour
         PausePanel.SetActive(state);
         GameTime.SetTimeScale(state == true ? 0f : 1f);
         pauseScreenState = state;
+    }
+
+    // Set the new state of the Body or Soul UI, True = Body, False is Soul icon.
+    public void SetBodyStateUI(bool state)
+    {
+        bodyUI.SetActive(state);
+        soulUI.SetActive(!state);
+        bodyState = state;
     }
 }
