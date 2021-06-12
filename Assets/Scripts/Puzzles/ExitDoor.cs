@@ -4,6 +4,7 @@ using UnityEngine;
 public class ExitDoor : MonoBehaviour
 {
     [SerializeField] private TextMeshPro stateText;
+    [SerializeField] string levelToSwitchTo;
     private PuzzleManager puzzleManager;
 
     private bool doorIsOpen = false;
@@ -34,6 +35,7 @@ public class ExitDoor : MonoBehaviour
             if(bodyIsOnDoor && soulIsOnDoor)
             {
                 Debug.Log("Level Completed, go to next level");
+                LevelSwitchManager.Instance.LoadLevel(levelToSwitchTo);
             }
         }
     }
