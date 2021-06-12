@@ -6,6 +6,10 @@ public class ExitDoor : MonoBehaviour
     [SerializeField] private TextMeshPro stateText;
     [SerializeField] string levelToSwitchTo;
     [SerializeField] private Animator playerEndAnimator;
+
+    [SerializeField] private SpriteRenderer m_Door;
+    [SerializeField] private Sprite m_Closed, m_Open;
+
     private PuzzleManager puzzleManager;
 
     private bool doorIsOpen = false;
@@ -23,8 +27,9 @@ public class ExitDoor : MonoBehaviour
         if(!doorIsOpen)
         {
             stateText.text = "Exit Door Closed";
+            m_Door.sprite = m_Closed;
 
-            if(puzzleManager.AreAllPuzzlesCompleted() /* and all enemies are dead */)
+            if (puzzleManager.AreAllPuzzlesCompleted() /* and all enemies are dead */)
             {
                 doorIsOpen = true;
             }
@@ -32,8 +37,9 @@ public class ExitDoor : MonoBehaviour
         else
         {
             stateText.text = "Exit Door Open";
+            m_Door.sprite = m_Open;
 
-            if(bodyIsOnDoor && soulIsOnDoor)
+            if (bodyIsOnDoor && soulIsOnDoor)
             {
                 playerEndAnimator.enabled = true;
                 Debug.Log("Level Completed, go to next level");
