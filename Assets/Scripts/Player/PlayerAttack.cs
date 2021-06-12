@@ -13,7 +13,8 @@ public class PlayerAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckCollision();
+        // Disabled because the player itself got removed aswell
+        //CheckCollision();
     }
 
     private void CheckCollision()
@@ -28,6 +29,8 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
+    // Stefan:
+    // Same story here as in 'PlayerProjectile'
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Enemy")

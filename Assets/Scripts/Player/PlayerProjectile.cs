@@ -25,9 +25,10 @@ public class PlayerProjectile : MonoBehaviour
 
         m_CurrentTravelTime += Time.deltaTime;
 
-        CheckCollision();
+        // disabled for now, player got removed aswell
+        //CheckCollision(); 
 
-        if (m_CurrentTravelTime >= m_MaxTravelTime)
+        if(m_CurrentTravelTime >= m_MaxTravelTime)
         {
             Destroy(gameObject);
         }
@@ -46,6 +47,9 @@ public class PlayerProjectile : MonoBehaviour
         }
     }
 
+    // Stefan:
+    // Probably want the let enemy check if it got hit by a bullet instead of the other way around
+    // Maybe let the bullet check if it hit a boundary ( walls ) and if so, then destroy itself
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Enemy")
