@@ -60,7 +60,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void DidPlayerDie()
     {
-        if(Health < 0)
+        if(Health <= 0)
         {
             Health = 0;
             Debug.Log("Player died!!");
@@ -73,6 +73,11 @@ public class PlayerHealth : MonoBehaviour
         if(other.CompareTag(GameTags.ENEMY))
         {
             UpdateHealth(-GameVariables.ENEMY_DAMAGE);
+        }
+
+        if(other.CompareTag(GameTags.PROJECTILE))
+        {
+            UpdateHealth(-GameVariables.SELF_DAMAGE);
         }
     }
 
