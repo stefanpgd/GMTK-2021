@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class UserMetricsService : MonoBehaviour
 {
-    public Action MetricUpdatedEvent;
+    public Action MetricUpdatedEvent = delegate { };
 
     private int score;
     private int kills;

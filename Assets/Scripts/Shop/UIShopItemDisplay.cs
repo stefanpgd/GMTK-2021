@@ -6,9 +6,11 @@ public class UIShopItemDisplay : MonoBehaviour
 {
     [SerializeField] private Item item;
     [SerializeField] private Button purchaseButton;
-    [SerializeField] private SpriteRenderer itemImageDisplay;
+    [SerializeField] private Image itemImageDisplay;
     [SerializeField] private TextMeshProUGUI itemTitleDisplay;
-    [SerializeField] private TextMeshProUGUI itemCostDisplay;
+    [SerializeField] private TextMeshProUGUI itemDescription;
+    [SerializeField] private TextMeshProUGUI itemCost;
+    [SerializeField] private GameObject purchaseLayer;
     [SerializeField] private GameObject purchasedLayer;
 
     private ShopManager shopManager;
@@ -19,8 +21,10 @@ public class UIShopItemDisplay : MonoBehaviour
 
         itemImageDisplay.sprite = item.ItemImage;
         itemTitleDisplay.text = item.ItemTitle;
-        itemCostDisplay.text = item.ItemCost.ToString();
+        itemDescription.text = item.ItemDescription.ToString();
+        itemCost.text = "Price: " + item.ItemCost.ToString();
 
+        purchaseLayer.SetActive(true);
         purchasedLayer.SetActive(false);
 
         purchaseButton.onClick.AddListener(TryPurchaseItem);
@@ -37,6 +41,7 @@ public class UIShopItemDisplay : MonoBehaviour
 
         if(hasPurchasedItem)
         {
+            purchaseLayer.SetActive(false);
             purchasedLayer.SetActive(true);
             purchaseButton.onClick.RemoveListener(TryPurchaseItem);
         }

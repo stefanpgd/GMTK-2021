@@ -7,8 +7,8 @@ public class PlayerHealth : MonoBehaviour
     public int Health { get; private set; }
     public int MaxHealth { get; private set; }
 
-    public Action playerDiedEvent;
-    public Action playerHealthUpdatedEvent;
+    public Action playerDiedEvent = delegate { };
+    public Action playerHealthUpdatedEvent = delegate { };
 
     [SerializeField] private CollisionEvents bodyCollider;
     [SerializeField] private CollisionEvents soulCollider;
@@ -28,39 +28,64 @@ public class PlayerHealth : MonoBehaviour
     {
         MaxHealth = GameVariables.START_MAX_HEALTH;
         Health = MaxHealth;
+
+        bodyCollider.OnTriggerEnterEvent += OnBodyTriggerEnter;
+        soulCollider.OnTriggerEnterEvent += OnSoulTriggerEnter;
     }
 
-    private void UpdateHealth(int value)
+    private void OnDestroy()
+    {
+        bodyCollider.OnTriggerEnterEvent -= OnBodyTriggerEnter;
+        soulCollider.OnTriggerEnterEvent -= OnSoulTriggerEnter;
+    }
+
+    public void UpdateHealth(int value)
     {
         Health += value;
 
         DidPlayerDie();
 
         playerHealthUpdatedEvent.Invoke();
+
+        Debug.Log("Current Player Health: " + Health);
+    }
+
+    // ik ben te lui om het netjes nog te doen
+    public void UpdateMaxHealth(int value)
+    {
+        MaxHealth += value;
+
+        playerHealthUpdatedEvent.Invoke();
     }
 
     private void DidPlayerDie()
     {
-        if(Health < 0)
+        if(Health <= 0)
         {
+            Health = 0;
+            Debug.Log("Player died!!");
             playerDiedEvent.Invoke();
-            Debug.Log("AAA kut ik ben dood");
         }
     }
 
-    private void OnSoulCollisionEnter(Collision collision)
+    private void OnBodyTriggerEnter(Collider other)
     {
-        if(collision.gameObject.CompareTag(GameTags.ENEMY))
+        if(other.CompareTag(GameTags.ENEMY))
         {
-            UpdateHealth(GameVariables.ENEMY_DAMAGE);
+            UpdateHealth(-GameVariables.ENEMY_DAMAGE);
+        }
+
+        if(other.CompareTag(GameTags.PROJECTILE))
+        {
+            UpdateHealth(-GameVariables.SELF_DAMAGE);
         }
     }
 
-    private void OnBodyCollisionEnter(Collision collision)
+    private void OnSoulTriggerEnter(Collider other)
     {
-        if(collision.gameObject.CompareTag(GameTags.ENEMY))
+        if(other.gameObject.CompareTag(GameTags.ENEMY))
         {
-            UpdateHealth(GameVariables.ENEMY_DAMAGE);
+            UpdateHealth(-GameVariables.ENEMY_DAMAGE);
         }
     }
 }
