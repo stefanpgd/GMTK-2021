@@ -31,9 +31,11 @@ public class PlayerProjectile : MonoBehaviour
         }
     }
 
+    // Checks when it has collision with a wall
     private void CheckCollision()
     {
-        Collider[] collider = Physics.OverlapBox(transform.position, new Vector3(1, 1, 1));
+        // Via overlapbox checks if it collides with something that has a collider
+        Collider[] collider = Physics.OverlapBox(transform.position, transform.localScale);
 
         for(int i = 0; i < collider.Length; i++)
         {
