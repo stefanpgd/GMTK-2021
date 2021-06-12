@@ -5,6 +5,9 @@ using UnityEngine;
 public class PlayerProjectile : MonoBehaviour
 {
     [SerializeField]
+    private GameObject m_Burst;
+
+    [SerializeField]
     private float m_Speed;
 
     [SerializeField]
@@ -42,6 +45,9 @@ public class PlayerProjectile : MonoBehaviour
             if (collider[i].tag == "Wall")
             {
                 Debug.Log("Projectile hit a wall");
+
+                GameObject effect = Instantiate(m_Burst, transform.position, m_Burst.transform.rotation);
+                Destroy(effect, 1f);
 
                 Destroy(gameObject);
             }

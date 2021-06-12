@@ -6,7 +6,11 @@ using UnityEngine.AI;
 public class AI : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer m_SpriteRenderer;
+    [SerializeField] private GameObject m_Blood;
+
     private Collider collider;
+    private Animator m_Animator;
+
     //
     public NavMeshAgent agent;
 
@@ -36,6 +40,7 @@ public class AI : MonoBehaviour
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        m_Animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -109,7 +114,10 @@ public class AI : MonoBehaviour
     {
         Debug.Log("lol enemy ai heeft een projectile gegeten");
 
-        if(isSoul == false)
+        GameObject effect = Instantiate(m_Blood, transform.position, m_Blood.transform.rotation);
+        Destroy(effect, 1f);
+
+        if (isSoul == false)
         {
             bodyHealth -= amount;
 
@@ -117,6 +125,7 @@ public class AI : MonoBehaviour
             {
                 attackBody = false;
                 isSoul = true;
+                m_Animator.SetTrigger("Soul");
 
                 SwitchColours();
             }
@@ -141,12 +150,12 @@ public class AI : MonoBehaviour
         if (isSoul == false)
         {
             transform.GetComponentInChildren<SpriteRenderer>().sprite = bodySprite;
-            collider.isTrigger = true;
+            //collider.isTrigger = true;
         }
         else if (isSoul == true)
         {
             transform.GetComponentInChildren<SpriteRenderer>().sprite = soulSprite;
-            collider.isTrigger = false;
+            //collider.isTrigger = false;
         }
     }
 
