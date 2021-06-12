@@ -19,7 +19,10 @@ public class BodyPressurePlate : Puzzle
 
     private void OnDisable()
     {
-        puzzleManager.RemovePuzzle(this);
+        if(puzzleManager != null)
+        {
+            puzzleManager.RemovePuzzle(this);
+        }
     }
 
     private void OnTriggerEnter(Collider other)

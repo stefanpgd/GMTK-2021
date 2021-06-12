@@ -25,8 +25,11 @@ public class LockedDoor : Puzzle
 
     private void OnDisable()
     {
-        puzzleManager.RemovePuzzle(this);
-        doorCollisionEvents.OnTriggerEnterEvent -= OnDoorTriggerEnter;
+        if(puzzleManager != null)
+        {
+            puzzleManager.RemovePuzzle(this);
+            doorCollisionEvents.OnTriggerEnterEvent -= OnDoorTriggerEnter;
+        }
     }
 
     private void OnDoorTriggerEnter(Collider other)

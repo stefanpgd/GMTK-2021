@@ -17,10 +17,13 @@ public class Key : Puzzle
         keyCollisionEvents.OnTriggerEnterEvent += OnKeyEnter;
     }
 
-    private void OnDestroy()
+    private void OnDisable()
     {
-        puzzleManager.RemovePuzzle(this);
-        keyCollisionEvents.OnTriggerEnterEvent -= OnKeyEnter;
+        if(puzzleManager != null)
+        {
+            puzzleManager.RemovePuzzle(this);
+            keyCollisionEvents.OnTriggerEnterEvent -= OnKeyEnter;
+        }
     }
 
     private void OnKeyEnter(Collider other)
