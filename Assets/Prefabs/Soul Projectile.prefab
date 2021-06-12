@@ -126,6 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 340b6aad1f2d09e4eb1a355cca945d6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Burst: {fileID: 7883836885829913622, guid: a49caae7e3876d645a018dbeaa3acc34, type: 3}
   m_Speed: 20
   m_MaxTravelTime: 3
 --- !u!96 &-1067830877069950410

@@ -2738,36 +2738,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 730edb986c0d5b74cb30534c82eddde5, type: 3}
---- !u!1 &813503141
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 813503142}
-  m_Layer: 0
-  m_Name: Emitter
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &813503142
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 813503141}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.3, y: 2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1654911563}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1001 &920470720
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3205,11 +3175,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71a513fa0e857da438799278612d602c, type: 3}
---- !u!4 &1654911563 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8508434093110423017, guid: 5aa6870183a86cb4da1c9d33d0933349, type: 3}
-  m_PrefabInstance: {fileID: 1968661224}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1658897799
 GameObject:
   m_ObjectHideFlags: 0
@@ -6292,50 +6257,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1769381714, guid: 5aa6870183a86cb4da1c9d33d0933349, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 1769381714, guid: 5aa6870183a86cb4da1c9d33d0933349, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 1769381714, guid: 5aa6870183a86cb4da1c9d33d0933349, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 1792266196, guid: 5aa6870183a86cb4da1c9d33d0933349, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2084003230, guid: 5aa6870183a86cb4da1c9d33d0933349, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5195233370662518082, guid: 5aa6870183a86cb4da1c9d33d0933349, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5195233370662518082, guid: 5aa6870183a86cb4da1c9d33d0933349, type: 3}
-      propertyPath: m_SlashEffect
-      value: 
-      objectReference: {fileID: 1602253095579105680, guid: 3cb3d424b1f3a014facb500161baa9cc, type: 3}
-    - target: {fileID: 5195233370662518082, guid: 5aa6870183a86cb4da1c9d33d0933349, type: 3}
-      propertyPath: m_SlashEmitter
-      value: 
-      objectReference: {fileID: 813503142}
-    - target: {fileID: 6859694568736818279, guid: 5aa6870183a86cb4da1c9d33d0933349, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 6859694568736818279, guid: 5aa6870183a86cb4da1c9d33d0933349, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 6859694568736818279, guid: 5aa6870183a86cb4da1c9d33d0933349, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 13
-      objectReference: {fileID: 0}
     - target: {fileID: 8508434091921061950, guid: 5aa6870183a86cb4da1c9d33d0933349, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -6384,52 +6305,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 8508434092057739942, guid: 5aa6870183a86cb4da1c9d33d0933349, type: 3}
-      propertyPath: m_SwitchCooldownTime
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8508434092521452553, guid: 5aa6870183a86cb4da1c9d33d0933349, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8508434093110423019, guid: 5aa6870183a86cb4da1c9d33d0933349, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8508434093203050611, guid: 5aa6870183a86cb4da1c9d33d0933349, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8508434093203050611, guid: 5aa6870183a86cb4da1c9d33d0933349, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8508434093203050611, guid: 5aa6870183a86cb4da1c9d33d0933349, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8508434093203050611, guid: 5aa6870183a86cb4da1c9d33d0933349, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8508434093203050611, guid: 5aa6870183a86cb4da1c9d33d0933349, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8508434093203050611, guid: 5aa6870183a86cb4da1c9d33d0933349, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8508434093203050611, guid: 5aa6870183a86cb4da1c9d33d0933349, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8508434093203050611, guid: 5aa6870183a86cb4da1c9d33d0933349, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9089360635089295065, guid: 5aa6870183a86cb4da1c9d33d0933349, type: 3}
-      propertyPath: m_Enabled
+    - target: {fileID: 8508434093306402227, guid: 5aa6870183a86cb4da1c9d33d0933349, type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
