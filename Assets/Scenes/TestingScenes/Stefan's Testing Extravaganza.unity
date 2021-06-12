@@ -496,10 +496,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2084003230, guid: 5aa6870183a86cb4da1c9d33d0933349, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 6e7f0fcb51f1cda42bf9d4a6f13bc39c, type: 2}
     - target: {fileID: 8508434091921061950, guid: 5aa6870183a86cb4da1c9d33d0933349, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -547,14 +543,6 @@ PrefabInstance:
     - target: {fileID: 8508434091921061951, guid: 5aa6870183a86cb4da1c9d33d0933349, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 8508434093110423019, guid: 5aa6870183a86cb4da1c9d33d0933349, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 563b8843ed5da374a8ed196eda7f4013, type: 2}
-    - target: {fileID: 8508434093110423022, guid: 5aa6870183a86cb4da1c9d33d0933349, type: 3}
-      propertyPath: m_TagString
-      value: Weapon
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5aa6870183a86cb4da1c9d33d0933349, type: 3}
