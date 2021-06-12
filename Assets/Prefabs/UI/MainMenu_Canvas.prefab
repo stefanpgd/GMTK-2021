@@ -839,9 +839,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4530bf2709fb69b4a97c7859f494cd5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onAwakeEvent:
-    m_PersistentCalls:
-      m_Calls: []
   onStartEvent:
     m_PersistentCalls:
       m_Calls:
