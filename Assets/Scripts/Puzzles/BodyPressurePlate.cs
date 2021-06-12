@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PressurePlate : Puzzle
+public class BodyPressurePlate : Puzzle
 {
     [SerializeField] private MeshRenderer meshRenderer;
     [SerializeField] private Material puzzleNotCompleted;
@@ -24,7 +24,7 @@ public class PressurePlate : Puzzle
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag(GameTags.BODY) || other.CompareTag(GameTags.SOUL))
+        if(other.CompareTag(GameTags.BODY))
         {
             meshRenderer.material = puzzleCompleted;
             IsPressedByPlayer = true;
