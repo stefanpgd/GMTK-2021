@@ -28,27 +28,21 @@ public class LevelSwitchManager : MonoBehaviour
 
     void Start()
     {
-        for (int l = 0; l < m_levels.Count; l++)
-        {
-            m_levels[l].SetActive(false);
-        }
-
-        m_levels[0].SetActive(true);
         m_currentlevel = m_levels[0];
     }
 
     public void LevelFinished(string nextLevel)
     {
-        m_currentlevel.SetActive(false);
-
         nextLevelToLoad = nextLevel;
-        shopAnimator.SetTrigger("SlideIn");
+        shopAnimator.SetBool("Open", true);
     }
 
     // Shop Manager calls the 'LoadNextLevel' whenever the Exit Button is pressed
     public void LoadNextLevel()
     {
-        shopAnimator.SetTrigger("SlideOut");
+        m_currentlevel.SetActive(false);
+
+        shopAnimator.SetBool("Open", false);
 
         for(int l = 0; l < m_levels.Count; l++)
         {

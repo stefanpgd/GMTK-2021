@@ -646,7 +646,7 @@ GameObject:
   - component: {fileID: 8824040115285479304}
   - component: {fileID: 8824040115285479311}
   - component: {fileID: 8824040115285479310}
-  - component: {fileID: 3552781545617737167}
+  - component: {fileID: 327517803}
   m_Layer: 5
   m_Name: Shop
   m_TagString: Untagged
@@ -704,7 +704,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   textObject: {fileID: 8824040115431222957}
---- !u!95 &3552781545617737167
+--- !u!95 &327517803
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -714,7 +714,7 @@ Animator:
   m_GameObject: {fileID: 8824040115285479305}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4e65611c35008cd49847a99f3b7e44ef, type: 2}
+  m_Controller: {fileID: 9100000, guid: 1380520495946fb4db37db6a6ae521c4, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

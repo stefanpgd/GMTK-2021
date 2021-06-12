@@ -5,6 +5,7 @@ public class ExitDoor : MonoBehaviour
 {
     [SerializeField] private TextMeshPro stateText;
     [SerializeField] string levelToSwitchTo;
+    [SerializeField] private Animator playerEndAnimator;
     private PuzzleManager puzzleManager;
 
     private bool doorIsOpen = false;
@@ -34,6 +35,7 @@ public class ExitDoor : MonoBehaviour
 
             if(bodyIsOnDoor && soulIsOnDoor)
             {
+                playerEndAnimator.enabled = true;
                 Debug.Log("Level Completed, go to next level");
                 LevelSwitchManager.Instance.LevelFinished(levelToSwitchTo);
             }
