@@ -10429,6 +10429,10 @@ PrefabInstance:
       propertyPath: levelToSwitchTo
       value: Level-07
       objectReference: {fileID: 0}
+    - target: {fileID: 3864308962607371527, guid: 47b02c41278acf040911f734da4e3906, type: 3}
+      propertyPath: playerEndAnimator
+      value: 
+      objectReference: {fileID: 955335610}
     - target: {fileID: 8638840580239197038, guid: 47b02c41278acf040911f734da4e3906, type: 3}
       propertyPath: m_RootOrder
       value: 11
