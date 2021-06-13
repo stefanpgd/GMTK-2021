@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class ExitDoor : MonoBehaviour
 {
-    [SerializeField] private TextMeshPro stateText;
     [SerializeField] string levelToSwitchTo;
     [SerializeField] private Animator playerEndAnimator;
 
@@ -29,7 +28,6 @@ public class ExitDoor : MonoBehaviour
         // Check if Puzzles are done and if enemies are dead
         if(!doorIsOpen)
         {
-            stateText.text = "Exit Door Closed";
             m_Door.sprite = m_Closed;
 
             if (puzzleManager.AreAllPuzzlesCompleted())
@@ -41,7 +39,6 @@ public class ExitDoor : MonoBehaviour
         {
             if(!doorIsUsed)
             {
-                stateText.text = "Exit Door Open";
                 m_Door.sprite = m_Open;
 
                 if(bodyIsOnDoor && soulIsOnDoor)
