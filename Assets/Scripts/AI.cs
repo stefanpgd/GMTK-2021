@@ -15,6 +15,10 @@ public class AI : MonoBehaviour
     [SerializeField] private float wallAvoidanceSpeed;
     [SerializeField] private float maxForce;
     [SerializeField] private float maxVelocity;
+    [SerializeField] private int pointsForKill;
+
+    private UserMetricsService userMetricsService;
+    private AIManager aiManager; 
 
     private Timer attackCooldown;
 
@@ -23,9 +27,6 @@ public class AI : MonoBehaviour
     private Vector3 location;
 
     private Animator m_Animator;
-
-    //
-    //public NavMeshAgent agent;
 
     //
     public Sprite bodySprite;
@@ -59,6 +60,11 @@ public class AI : MonoBehaviour
 
         //agent = GetComponent<NavMeshAgent>();
         m_Animator = GetComponent<Animator>();
+
+        userMetricsService = UserMetricsService.Instance;
+        aiManager = AIManager.Instance;
+
+        aiManager.AddEnemy(this);
     }
 
     void Update()
@@ -186,6 +192,8 @@ public class AI : MonoBehaviour
 
                 if (isSkeleton)
                 {
+                    userMetricsService.AddMetric(MetricType.Score, pointsForKill);
+                    userMetricsService.AddMetric(MetricType.Kills);
                     Destroy(gameObject);
                 }
             }
@@ -199,6 +207,8 @@ public class AI : MonoBehaviour
             {
                 //Call enemy manager who keeps track of all enemies
                 //Destroy enemy object
+                userMetricsService.AddMetric(MetricType.Score, pointsForKill);
+                userMetricsService.AddMetric(MetricType.Kills);
                 Destroy(gameObject);
             }
         }
