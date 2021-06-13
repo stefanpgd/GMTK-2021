@@ -92,6 +92,12 @@ public class PlayerHealth : MonoBehaviour
     public void UpdateHealthPickup(int value) 
     {
         Health += value;
+
+        if(Health > MaxHealth)
+        {
+            Health = MaxHealth;
+        }
+
         playerHealthUpdatedEvent.Invoke();
     }
 
