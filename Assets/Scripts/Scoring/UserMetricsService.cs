@@ -31,6 +31,8 @@ public class UserMetricsService : MonoBehaviour
                 kills += value;
                 break;
         }
+
+        MetricUpdatedEvent.Invoke();
     }
 
     public int GetMetric(MetricType type)

@@ -87,7 +87,7 @@ MonoBehaviour:
   wallAvoidanceSpeed: 2
   maxForce: 2
   maxVelocity: 2
-  pointsForKill: 0
+  pointsForKill: 20
   bodySprite: {fileID: 21300000, guid: 76831858b02541644ba27a7dbcc8ea17, type: 3}
   soulSprite: {fileID: 21300000, guid: f8d75e7a6cdd0c64d91c8bc096b53165, type: 3}
   playerBody: {fileID: 0}

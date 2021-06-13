@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class BodyPressurePlate : Puzzle
 {
-    [SerializeField] private MeshRenderer meshRenderer;
-    [SerializeField] private Material puzzleNotCompleted;
-    [SerializeField] private Material puzzleCompleted;
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private Sprite puzzleNotCompleted;
+    [SerializeField] private Sprite puzzleCompleted;
 
     private PuzzleManager puzzleManager;
     private bool IsPressedByPlayer;
@@ -14,7 +14,7 @@ public class BodyPressurePlate : Puzzle
         puzzleManager = PuzzleManager.Instance;
         puzzleManager.AddPuzzle(this);
 
-        meshRenderer.material = puzzleNotCompleted;
+        spriteRenderer.sprite = puzzleNotCompleted;
     }
 
     private void OnDisable()
@@ -29,7 +29,7 @@ public class BodyPressurePlate : Puzzle
     {
         if(other.CompareTag(GameTags.BODY))
         {
-            meshRenderer.material = puzzleCompleted;
+            spriteRenderer.sprite = puzzleCompleted;
             IsPressedByPlayer = true;
         }
     }

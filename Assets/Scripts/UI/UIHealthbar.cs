@@ -24,6 +24,7 @@ public class UIHealthbar : MonoBehaviour
 
         float fill = currentHealth / maxHealth;
 
+        healthBarFill.fillAmount = fill;
         healthbarText.text = currentHealth.ToString() + "/" + maxHealth.ToString();
     }
 }

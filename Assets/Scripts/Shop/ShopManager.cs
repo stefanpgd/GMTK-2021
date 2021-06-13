@@ -42,6 +42,7 @@ public class ShopManager : MonoBehaviour
             {
                 case ItemType.HealthUpgrade:
                     PlayerHealth.Instance.UpdateMaxHealth(100);
+                    PlayerHealth.Instance.UpdateHealth(200);
                     break;
             }
 

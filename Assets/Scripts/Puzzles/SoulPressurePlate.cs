@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class SoulPressurePlate : Puzzle
 {
-    [SerializeField] private MeshRenderer meshRenderer;
-    [SerializeField] private Material puzzleNotCompleted;
-    [SerializeField] private Material puzzleCompleted;
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private Sprite puzzleNotCompleted;
+    [SerializeField] private Sprite puzzleCompleted;
 
     private PuzzleManager puzzleManager;
     private bool IsPressedByPlayer;
@@ -14,7 +14,7 @@ public class SoulPressurePlate : Puzzle
         puzzleManager = PuzzleManager.Instance;
         puzzleManager.AddPuzzle(this);
 
-        meshRenderer.material = puzzleNotCompleted;
+        spriteRenderer.sprite = puzzleNotCompleted;
     }
 
     private void OnDisable()
@@ -26,7 +26,7 @@ public class SoulPressurePlate : Puzzle
     {
         if(other.CompareTag(GameTags.SOUL))
         {
-            meshRenderer.material = puzzleCompleted;
+            spriteRenderer.sprite = puzzleCompleted;
             IsPressedByPlayer = true;
         }
     }

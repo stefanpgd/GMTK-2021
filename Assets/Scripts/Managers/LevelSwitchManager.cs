@@ -56,7 +56,6 @@ public class LevelSwitchManager : MonoBehaviour
     {
         player.SetActive(false);
         shopAnimator.SetTrigger("open");
-        Debug.LogError("Double Fuck you");
     }
 
     // Shop Manager calls the 'LoadNextLevel' whenever the Exit Button is pressed

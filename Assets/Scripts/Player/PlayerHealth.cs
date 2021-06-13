@@ -35,6 +35,8 @@ public class PlayerHealth : MonoBehaviour
 
     private void Start()
     {
+        cameraShake = CameraShake.Instance;
+
         invincibility = new Timer(invincibilityTimer);
 
         MaxHealth = GameVariables.START_MAX_HEALTH;
@@ -64,6 +66,11 @@ public class PlayerHealth : MonoBehaviour
         if(canTakeDamage)
         {
             Health += value;
+
+            if(Health > MaxHealth)
+            {
+                Health = MaxHealth;
+            }
 
             if(value < 0)
             {

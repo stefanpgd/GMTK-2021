@@ -1321,6 +1321,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bodyCollider: {fileID: 6147131590369718074}
   soulCollider: {fileID: 789757167883235033}
+  screenshakeDuration: 0.15
+  screenshakeStrength: 0.35
   invincibilityTimer: 1
 --- !u!95 &2097880869
 Animator:
@@ -1408,6 +1410,7 @@ MonoBehaviour:
   m_SwordSoul: {fileID: 21300000, guid: 4675509125929b640a42739ea4b0a25f, type: 3}
   m_GunBody: {fileID: 21300000, guid: e7124cfe48d15ee44adb89cb2dc7e6bf, type: 3}
   m_GunSoul: {fileID: 21300000, guid: 2baf11ffb7911994182efea05f71ce1e, type: 3}
+  switchNotification: {fileID: 0}
   m_CanSwitch: 1
 --- !u!33 &8508434092057739940
 MeshFilter:
