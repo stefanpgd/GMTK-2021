@@ -36,7 +36,7 @@ public class ShopManager : MonoBehaviour
     {
         int currentScore = userMetricsService.GetMetric(MetricType.Score);
 
-        if(item.ItemCost >= currentScore)
+        if(currentScore >= item.ItemCost)
         {
             switch(item.Type)
             {
