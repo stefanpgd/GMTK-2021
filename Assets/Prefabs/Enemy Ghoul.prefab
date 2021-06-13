@@ -51,9 +51,9 @@ MonoBehaviour:
   m_Blood: {fileID: 2002940431061111726, guid: 1d9b66bfd70102540ae00fb803ca5720, type: 3}
   projectile: {fileID: 0}
   speed: 0.025
-  wallAvoidanceSpeed: 4
+  wallAvoidanceSpeed: 2
   maxForce: 2
-  maxVelocity: 4
+  maxVelocity: 2
   bodySprite: {fileID: 21300000, guid: 76831858b02541644ba27a7dbcc8ea17, type: 3}
   soulSprite: {fileID: 21300000, guid: f8d75e7a6cdd0c64d91c8bc096b53165, type: 3}
   playerBody: {fileID: 0}
@@ -66,7 +66,7 @@ MonoBehaviour:
   soulSpeed: 0.01
   attackBody: 1
   isSoul: 0
-  isRanged: 0
+  isSkeleton: 0
 --- !u!54 &7144023784601510538
 Rigidbody:
   m_ObjectHideFlags: 0

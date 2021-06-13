@@ -134,9 +134,9 @@ MonoBehaviour:
   m_Blood: {fileID: 2002940431061111726, guid: 1d9b66bfd70102540ae00fb803ca5720, type: 3}
   projectile: {fileID: 453783570838632555, guid: b6a276a85aaa0e048bd3a1e65a422b58, type: 3}
   speed: 0.025
-  wallAvoidanceSpeed: 4
+  wallAvoidanceSpeed: 2
   maxForce: 2
-  maxVelocity: 4
+  maxVelocity: 2
   bodySprite: {fileID: 21300000, guid: da5e6eff8a9399e459d974884b599170, type: 3}
   soulSprite: {fileID: 21300000, guid: da5e6eff8a9399e459d974884b599170, type: 3}
   playerBody: {fileID: 0}
