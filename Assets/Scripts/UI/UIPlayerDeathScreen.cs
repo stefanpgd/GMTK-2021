@@ -5,6 +5,7 @@ public class UIPlayerDeathScreen : MonoBehaviour
     [SerializeField] private Animator endScreenAnimator;
 
     private PlayerHealth playerHealth;
+    [SerializeField] private GameObject player;
 
     private void Start()
     {
@@ -21,5 +22,6 @@ public class UIPlayerDeathScreen : MonoBehaviour
     private void MoveInEndScreen()
     {
         endScreenAnimator.SetTrigger("SlideIn");
+        player.SetActive(false);
     }
 }
