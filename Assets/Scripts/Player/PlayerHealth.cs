@@ -92,6 +92,7 @@ public class PlayerHealth : MonoBehaviour
     public void UpdateHealthPickup(int value) 
     {
         Health += value;
+        playerHealthUpdatedEvent.Invoke();
     }
 
     // ik ben te lui om het netjes nog te doen

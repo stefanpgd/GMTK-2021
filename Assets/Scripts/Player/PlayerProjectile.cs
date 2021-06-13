@@ -44,8 +44,6 @@ public class PlayerProjectile : MonoBehaviour
         {
             if (collider[i].tag == "Wall")
             {
-                Debug.Log("Projectile hit a wall");
-
                 GameObject effect = Instantiate(m_Burst, transform.position, m_Burst.transform.rotation);
                 Destroy(effect, 1f);
 

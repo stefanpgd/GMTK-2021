@@ -175,8 +175,6 @@ public class AI : MonoBehaviour
 
     private void TakeDamage(float amount)
     {
-        Debug.Log("lol enemy ai heeft een projectile gegeten");
-
         GameObject effect = Instantiate(m_Blood, transform.position, m_Blood.transform.rotation);
         Destroy(effect, 1f);
 
@@ -224,9 +222,9 @@ public class AI : MonoBehaviour
     {
         int pickupSpawnChance = Random.Range(0, 11);
 
-        if(pickupSpawnChance <= 8)
+        if(pickupSpawnChance <= 3)
         {
-            GameObject hPickup = Instantiate(healPickup, shootingPoint.position, transform.rotation);
+            GameObject hPickup = Instantiate(healPickup, shootingPoint.position, healPickup.transform.rotation);
             Destroy(hPickup, 12f);
         }
     }
