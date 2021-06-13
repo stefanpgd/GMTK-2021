@@ -1,6 +1,7 @@
 using UnityEngine;
 using SilverRogue.Tools;
 using System;
+using SilverRogue.CameraControl;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -12,6 +13,10 @@ public class PlayerHealth : MonoBehaviour
 
     [SerializeField] private CollisionEvents bodyCollider;
     [SerializeField] private CollisionEvents soulCollider;
+    [SerializeField] private float screenshakeDuration;
+    [SerializeField] private float screenshakeStrength;
+
+    private CameraShake cameraShake;
 
     public float invincibilityTimer;
     private Timer invincibility;
@@ -58,6 +63,11 @@ public class PlayerHealth : MonoBehaviour
         if(canTakeDamage)
         {
             Health += value;
+
+            if(value < 0)
+            {
+                cameraShake.ScreenShake(screenshakeDuration, screenshakeStrength);
+            }
 
             DidPlayerDie();
 
