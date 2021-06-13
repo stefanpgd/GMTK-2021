@@ -6191,6 +6191,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Exit Door
       objectReference: {fileID: 0}
+    - target: {fileID: 3911069863081611632, guid: 730edb986c0d5b74cb30534c82eddde5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 730edb986c0d5b74cb30534c82eddde5, type: 3}
 --- !u!1 &867902683
