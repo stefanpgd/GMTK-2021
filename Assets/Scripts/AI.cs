@@ -8,7 +8,7 @@ public class AI : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer m_SpriteRenderer;
 
-    [SerializeField] private GameObject m_Blood;
+    [SerializeField] private GameObject m_Blood, m_Bones;
     [SerializeField] private GameObject projectile;
 
     [SerializeField] private float speed;
@@ -192,6 +192,9 @@ public class AI : MonoBehaviour
 
                 if (isSkeleton)
                 {
+                    GameObject bones = Instantiate(m_Bones, transform.position, m_Bones.transform.rotation);
+                    Destroy(bones, 1f);
+
                     userMetricsService.AddMetric(MetricType.Score, pointsForKill);
                     userMetricsService.AddMetric(MetricType.Kills);
                     Destroy(gameObject);

@@ -132,11 +132,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SpriteRenderer: {fileID: 859837901937031658}
   m_Blood: {fileID: 2002940431061111726, guid: 1d9b66bfd70102540ae00fb803ca5720, type: 3}
+  m_Bones: {fileID: 5455827874701040172, guid: f26ee54b700bc064cae154f4f91b9549, type: 3}
   projectile: {fileID: 453783570838632555, guid: b6a276a85aaa0e048bd3a1e65a422b58, type: 3}
   speed: 0.025
   wallAvoidanceSpeed: 2
   maxForce: 2
   maxVelocity: 2
+  pointsForKill: 0
   bodySprite: {fileID: 21300000, guid: da5e6eff8a9399e459d974884b599170, type: 3}
   soulSprite: {fileID: 21300000, guid: da5e6eff8a9399e459d974884b599170, type: 3}
   playerBody: {fileID: 0}
