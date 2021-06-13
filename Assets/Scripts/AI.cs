@@ -29,9 +29,6 @@ public class AI : MonoBehaviour
     private Animator m_Animator;
 
     //
-    //public NavMeshAgent agent;
-
-    //
     public Sprite bodySprite;
     public Sprite soulSprite;
     //
@@ -210,6 +207,8 @@ public class AI : MonoBehaviour
             {
                 //Call enemy manager who keeps track of all enemies
                 //Destroy enemy object
+                userMetricsService.AddMetric(MetricType.Score, pointsForKill);
+                userMetricsService.AddMetric(MetricType.Kills);
                 Destroy(gameObject);
             }
         }
