@@ -1,5 +1,6 @@
 using UnityEngine;
 using SilverRogue.Tools;
+using UnityEngine.UI;
 
 public class Movement : MonoBehaviour
 {
@@ -15,6 +16,9 @@ public class Movement : MonoBehaviour
     [SerializeField] private Animator switchNotification;
 
     [SerializeField] private Rigidbody m_SoulRigid;
+    [SerializeField] private Image activeBodyImage;
+    [SerializeField] private Sprite greenActive;
+    [SerializeField] private Sprite orangeActive;
 
     public bool m_CanSwitch = true;
     public static bool m_HasSwitched;
@@ -118,6 +122,7 @@ public class Movement : MonoBehaviour
                     //Sword guy wordt soul
                     if(m_IsSoul)
                     {
+                        activeBodyImage.sprite = orangeActive;
                         transform.GetComponent<MeshRenderer>().material = m_SoulColor;
                         m_Soul.GetComponent<MeshRenderer>().material = m_BodyColor;
 
@@ -136,6 +141,7 @@ public class Movement : MonoBehaviour
                     //Gun guy wordt soul
                     else
                     {
+                        activeBodyImage.sprite = greenActive;
                         transform.GetComponent<MeshRenderer>().material = m_BodyColor;
                         m_Soul.GetComponent<MeshRenderer>().material = m_SoulColor;
 

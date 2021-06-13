@@ -1412,6 +1412,9 @@ MonoBehaviour:
   m_GunSoul: {fileID: 21300000, guid: 2baf11ffb7911994182efea05f71ce1e, type: 3}
   switchNotification: {fileID: 0}
   m_SoulRigid: {fileID: 8508434093306402190}
+  activeBody: {fileID: 0}
+  greenActive: {fileID: 21300000, guid: 99f700709433f0b4ab2bcc88eeddeaef, type: 3}
+  OrangeActive: {fileID: 21300000, guid: d7c8b0922b991344faf4f26ba730d14c, type: 3}
   m_CanSwitch: 1
 --- !u!33 &8508434092057739940
 MeshFilter:
