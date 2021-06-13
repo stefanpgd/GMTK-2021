@@ -85,12 +85,12 @@ public class AI : MonoBehaviour
         }
 
         //Testing if it works
-        if(Input.GetKeyDown(KeyCode.Z))
-        {
-            SwitchColours();
-            isSoul = !isSoul;
-            attackBody = !attackBody;
-        }
+        //if(Input.GetKeyDown(KeyCode.Z))
+        //{
+        //    SwitchColours();
+        //    isSoul = !isSoul;
+        //    attackBody = !attackBody;
+        //}
 
 
         if (attackCooldown.Expired && isSkeleton)
