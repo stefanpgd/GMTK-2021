@@ -13,6 +13,10 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private CollisionEvents bodyCollider;
     [SerializeField] private CollisionEvents soulCollider;
 
+    public float invincibilityTimer;
+    private Timer invincibility;
+    private bool canTakeDamage;
+
     #region Singleton
     public static PlayerHealth Instance;
     private void Awake()
@@ -26,11 +30,21 @@ public class PlayerHealth : MonoBehaviour
 
     private void Start()
     {
+        invincibility = new Timer(invincibilityTimer);
+
         MaxHealth = GameVariables.START_MAX_HEALTH;
         Health = MaxHealth;
 
         bodyCollider.OnTriggerEnterEvent += OnBodyTriggerEnter;
         soulCollider.OnTriggerEnterEvent += OnSoulTriggerEnter;
+    }
+
+    private void Update()
+    {
+        if(invincibility.Expired)
+        {
+            canTakeDamage = true;
+        }
     }
 
     private void OnDestroy()
@@ -41,13 +55,19 @@ public class PlayerHealth : MonoBehaviour
 
     public void UpdateHealth(int value)
     {
-        Health += value;
+        if(canTakeDamage)
+        {
+            Health += value;
 
-        DidPlayerDie();
+            DidPlayerDie();
 
-        playerHealthUpdatedEvent.Invoke();
+            playerHealthUpdatedEvent.Invoke();
 
-        Debug.Log("Current Player Health: " + Health);
+            Debug.Log("Current Player Health: " + Health);
+
+            canTakeDamage = false;
+            invincibility.Restart();
+        }
     }
 
     // ik ben te lui om het netjes nog te doen
@@ -78,6 +98,11 @@ public class PlayerHealth : MonoBehaviour
         if(other.CompareTag(GameTags.PROJECTILE))
         {
             UpdateHealth(-GameVariables.SELF_DAMAGE);
+        }
+
+        if(other.CompareTag(GameTags.ENEMY_PROJECTILE))
+        {
+            UpdateHealth(-GameVariables.ENEMY_PROJECTILE_DAMAGE);
         }
     }
 

@@ -1321,6 +1321,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bodyCollider: {fileID: 6147131590369718074}
   soulCollider: {fileID: 789757167883235033}
+  invincibilityTimer: 1
 --- !u!95 &2097880869
 Animator:
   serializedVersion: 3

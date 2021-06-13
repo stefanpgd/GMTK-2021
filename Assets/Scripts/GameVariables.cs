@@ -13,4 +13,5 @@ public static class GameVariables
     // Enemy Damage
     public const int ENEMY_DAMAGE = 5;
     public const int SELF_DAMAGE = 3;
+    public const int ENEMY_PROJECTILE_DAMAGE = 4;
 }

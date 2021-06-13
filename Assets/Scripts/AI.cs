@@ -2,25 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using SilverRogue.Tools;
 
 public class AI : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer m_SpriteRenderer;
+
     [SerializeField] private GameObject m_Blood;
+    [SerializeField] private GameObject projectile;
+
     [SerializeField] private float speed;
     [SerializeField] private float wallAvoidanceSpeed;
     [SerializeField] private float maxForce;
     [SerializeField] private float maxVelocity;
 
+    private Timer attackCooldown;
+
     private Vector3 velocity;
     private Vector3 acceralation;
     private Vector3 location;
 
-    private Collider collider;
     private Animator m_Animator;
 
     //
-    public NavMeshAgent agent;
+    //public NavMeshAgent agent;
 
     //
     public Sprite bodySprite;
@@ -28,26 +33,31 @@ public class AI : MonoBehaviour
     //
     public Transform playerBody;
     public Transform playerSoul;
+    public Transform shootingPoint;
 
     //
+    public float attackCooldownTimer;
+    public float projectileSpeed;
     public float bodyHealth;
     public float soulHealth;
     public float soulSpeed;
+
     //
     public bool attackBody; //if true attacks body, if false attacks soul
     public bool isSoul; //if true enemy is in soul form, if false enemy is in body form
+    public bool isSkeleton;
 
     private void Awake()
     {
-        collider = GetComponent<Collider>();
-
         SwitchColours();
         UpdatePosition();
     }
 
     private void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
+        attackCooldown = new Timer(attackCooldownTimer);
+
+        //agent = GetComponent<NavMeshAgent>();
         m_Animator = GetComponent<Animator>();
     }
 
@@ -75,6 +85,11 @@ public class AI : MonoBehaviour
             attackBody = !attackBody;
         }
 
+
+        if (attackCooldown.Expired && isSkeleton)
+        {
+            RangedAttack();
+        }
 
         acceralation = Vector3.zero;
     }
@@ -128,6 +143,29 @@ public class AI : MonoBehaviour
         }
     }
 
+    private void RangedAttack()
+    {
+        //nice code :)
+        GameObject ProjectileF = Instantiate(projectile, shootingPoint.position, projectile.transform.rotation) as GameObject;
+        ProjectileF.GetComponent<Rigidbody>().AddForce(transform.forward * projectileSpeed);
+
+        GameObject ProjectileR = Instantiate(projectile, shootingPoint.position, projectile.transform.rotation) as GameObject;
+        ProjectileR.GetComponent<Rigidbody>().AddForce(transform.right * projectileSpeed);
+
+        GameObject ProjectileD = Instantiate(projectile, shootingPoint.position, projectile.transform.rotation) as GameObject;
+        ProjectileD.GetComponent<Rigidbody>().AddForce(-transform.forward * projectileSpeed);
+
+        GameObject ProjectileL = Instantiate(projectile, shootingPoint.position, projectile.transform.rotation) as GameObject;
+        ProjectileL.GetComponent<Rigidbody>().AddForce(-transform.right * projectileSpeed);
+
+        Destroy(ProjectileF, 8.0f);
+        Destroy(ProjectileR, 8.0f);
+        Destroy(ProjectileD, 8.0f);
+        Destroy(ProjectileL, 8.0f);
+
+        attackCooldown.Restart();
+    }
+
     private void TakeDamage(float amount)
     {
         Debug.Log("lol enemy ai heeft een projectile gegeten");
@@ -144,8 +182,12 @@ public class AI : MonoBehaviour
                 attackBody = false;
                 isSoul = true;
                 m_Animator.SetTrigger("Soul");
-
                 SwitchColours();
+
+                if (isSkeleton)
+                {
+                    Destroy(gameObject);
+                }
             }
         }
 
@@ -168,12 +210,10 @@ public class AI : MonoBehaviour
         if (isSoul == false)
         {
             transform.GetComponentInChildren<SpriteRenderer>().sprite = bodySprite;
-            //collider.isTrigger = true;
         }
         else if (isSoul == true)
         {
             transform.GetComponentInChildren<SpriteRenderer>().sprite = soulSprite;
-            //collider.isTrigger = false;
         }
     }
 

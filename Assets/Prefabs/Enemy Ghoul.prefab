@@ -9,13 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7144023784601510536}
-  - component: {fileID: 7144023784601510535}
   - component: {fileID: 7144023784601510537}
   - component: {fileID: 7144023784601510538}
   - component: {fileID: 463004153}
   - component: {fileID: 463004149}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Enemy Ghoul
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36,28 +35,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
---- !u!195 &7144023784601510535
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7144023784601510534}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.32
-  m_Speed: 1
-  m_Acceleration: 2
-  avoidancePriority: 50
-  m_AngularSpeed: 0
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 0
-  m_AutoRepath: 1
-  m_Height: 0.64
-  m_BaseOffset: 0.32
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!114 &7144023784601510537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,20 +49,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SpriteRenderer: {fileID: 7144023786060314121}
   m_Blood: {fileID: 2002940431061111726, guid: 1d9b66bfd70102540ae00fb803ca5720, type: 3}
+  projectile: {fileID: 0}
   speed: 0.025
   wallAvoidanceSpeed: 4
   maxForce: 2
   maxVelocity: 4
-  agent: {fileID: 7144023784601510535}
   bodySprite: {fileID: 21300000, guid: 76831858b02541644ba27a7dbcc8ea17, type: 3}
   soulSprite: {fileID: 21300000, guid: f8d75e7a6cdd0c64d91c8bc096b53165, type: 3}
   playerBody: {fileID: 0}
   playerSoul: {fileID: 0}
+  shootingPoint: {fileID: 0}
+  attackCooldownTimer: 0
+  projectileSpeed: 0
   bodyHealth: 3
   soulHealth: 4
   soulSpeed: 0.01
   attackBody: 1
   isSoul: 0
+  isRanged: 0
 --- !u!54 &7144023784601510538
 Rigidbody:
   m_ObjectHideFlags: 0

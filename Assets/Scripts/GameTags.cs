@@ -9,6 +9,7 @@ public static class GameTags
     // Damage
     public const string WEAPON = "Weapon";
     public const string PROJECTILE = "Projectile";
+    public const string ENEMY_PROJECTILE = "EnemyProjectile";
 
     // Environment
     public const string WALL = "Wall";
