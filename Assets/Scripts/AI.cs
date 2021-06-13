@@ -10,6 +10,7 @@ public class AI : MonoBehaviour
 
     [SerializeField] private GameObject m_Blood, m_Bones;
     [SerializeField] private GameObject projectile;
+    [SerializeField] private GameObject healPickup;
 
     [SerializeField] private float speed;
     [SerializeField] private float wallAvoidanceSpeed;
@@ -197,6 +198,8 @@ public class AI : MonoBehaviour
 
                     userMetricsService.AddMetric(MetricType.Score, pointsForKill);
                     userMetricsService.AddMetric(MetricType.Kills);
+
+                    Pickup();
                     Destroy(gameObject);
                 }
             }
@@ -208,12 +211,23 @@ public class AI : MonoBehaviour
 
             if (soulHealth <= 0)
             {
-                //Call enemy manager who keeps track of all enemies
-                //Destroy enemy object
                 userMetricsService.AddMetric(MetricType.Score, pointsForKill);
                 userMetricsService.AddMetric(MetricType.Kills);
+
+                Pickup();
                 Destroy(gameObject);
             }
+        }
+    }
+
+    private void Pickup()
+    {
+        int pickupSpawnChance = Random.Range(0, 11);
+
+        if(pickupSpawnChance <= 8)
+        {
+            GameObject hPickup = Instantiate(healPickup, shootingPoint.position, transform.rotation);
+            Destroy(hPickup, 12f);
         }
     }
 

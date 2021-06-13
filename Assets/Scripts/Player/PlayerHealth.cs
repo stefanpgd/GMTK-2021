@@ -39,6 +39,7 @@ public class PlayerHealth : MonoBehaviour
 
         MaxHealth = GameVariables.START_MAX_HEALTH;
         Health = MaxHealth;
+        playerHealthUpdatedEvent.Invoke();
 
         bodyCollider.OnTriggerEnterEvent += OnBodyTriggerEnter;
         soulCollider.OnTriggerEnterEvent += OnSoulTriggerEnter;
@@ -78,6 +79,12 @@ public class PlayerHealth : MonoBehaviour
             canTakeDamage = false;
             invincibility.Restart();
         }
+    }
+
+    //update health which is used in pickup script
+    public void UpdateHealthPickup(int value) 
+    {
+        Health += value;
     }
 
     // ik ben te lui om het netjes nog te doen
