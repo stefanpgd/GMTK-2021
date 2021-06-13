@@ -32,7 +32,7 @@ public class ExitDoor : MonoBehaviour
             stateText.text = "Exit Door Closed";
             m_Door.sprite = m_Closed;
 
-            if (puzzleManager.AreAllPuzzlesCompleted() /* and all enemies are dead */)
+            if (puzzleManager.AreAllPuzzlesCompleted() && aiManager.AreAllEnemiesDeath())
             {
                 doorIsOpen = true;
             }
