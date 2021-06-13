@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7144023784601510537}
   - component: {fileID: 7144023784601510538}
   - component: {fileID: 463004153}
+  - component: {fileID: 463004149}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -70,6 +71,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SpriteRenderer: {fileID: 7144023786060314121}
+  m_Blood: {fileID: 2002940431061111726, guid: 1d9b66bfd70102540ae00fb803ca5720, type: 3}
+  speed: 0.025
+  wallAvoidanceSpeed: 4
+  maxForce: 2
+  maxVelocity: 4
   agent: {fileID: 7144023784601510535}
   bodySprite: {fileID: 21300000, guid: 76831858b02541644ba27a7dbcc8ea17, type: 3}
   soulSprite: {fileID: 21300000, guid: f8d75e7a6cdd0c64d91c8bc096b53165, type: 3}
@@ -77,7 +83,7 @@ MonoBehaviour:
   playerSoul: {fileID: 0}
   bodyHealth: 3
   soulHealth: 4
-  soulSpeed: 0.05
+  soulSpeed: 0.01
   attackBody: 1
   isSoul: 0
 --- !u!54 &7144023784601510538
@@ -109,6 +115,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 1, z: 0.5}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &463004149
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7144023784601510534}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 921b88b6be9507a4aac86bf187ffa525, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7144023786060314119
 GameObject:
   m_ObjectHideFlags: 0

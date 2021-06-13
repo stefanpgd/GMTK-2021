@@ -7,6 +7,14 @@ public class AI : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer m_SpriteRenderer;
     [SerializeField] private GameObject m_Blood;
+    [SerializeField] private float speed;
+    [SerializeField] private float wallAvoidanceSpeed;
+    [SerializeField] private float maxForce;
+    [SerializeField] private float maxVelocity;
+
+    private Vector3 velocity;
+    private Vector3 acceralation;
+    private Vector3 location;
 
     private Collider collider;
     private Animator m_Animator;
@@ -66,6 +74,9 @@ public class AI : MonoBehaviour
             isSoul = !isSoul;
             attackBody = !attackBody;
         }
+
+
+        acceralation = Vector3.zero;
     }
 
     private void UpdatePosition()
@@ -78,13 +89,23 @@ public class AI : MonoBehaviour
 
     private void ChaseBody()
     {
-        agent.SetDestination(playerBody.position);
+        Vector3 direction = playerBody.position - transform.position;
+        direction.Normalize();
+        direction *= speed;
+        LimitForce(ref direction);
+
+        location = transform.position;
+        acceralation += direction;
+        velocity += acceralation;
+        LimitVelocity();
+        velocity = new Vector3(velocity.x, 0f, velocity.z);
+        location += velocity * Time.deltaTime;
+        transform.position = location;
 
         if (transform.position.x > playerBody.position.x)
         {
             m_SpriteRenderer.flipX = false;
         }
-
         else
         {
             m_SpriteRenderer.flipX = true;
@@ -93,11 +114,8 @@ public class AI : MonoBehaviour
 
     private void ChaseSoul()
     {
-        //agent.SetDestination(playerSoul.position);
-
-        //float speed = soulSpeed * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, playerSoul.position, soulSpeed);
-
+        velocity = Vector3.zero;
 
         if (transform.position.x > playerSoul.position.x)
         {
@@ -169,6 +187,36 @@ public class AI : MonoBehaviour
         else if(other.tag == "Weapon")
         {
             TakeDamage(GameVariables.SWORD_DAMAGE);
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if(other.gameObject.CompareTag("Wall"))
+        {
+            Vector3 pushForce = transform.position - other.gameObject.transform.position;
+            pushForce.Normalize();
+            pushForce *= wallAvoidanceSpeed;
+            LimitForce(ref pushForce);
+            acceralation += pushForce;
+        }
+    }
+
+    private void LimitForce(ref Vector3 force)
+    {
+        if(force.magnitude > maxForce)
+        {
+            force.Normalize();
+            force *= maxForce;
+        }
+    }
+
+    private void LimitVelocity()
+    {
+        if(velocity.magnitude > maxVelocity)
+        {
+            velocity.Normalize();
+            velocity *= maxVelocity;
         }
     }
 }
