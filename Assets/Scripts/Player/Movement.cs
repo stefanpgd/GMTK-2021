@@ -12,6 +12,7 @@ public class Movement : MonoBehaviour
     [SerializeField] private Animator m_BodyAnim, m_SoulAnim;
     [SerializeField] private SpriteRenderer m_BodySprite, m_SoulSprite;
     [SerializeField] private Sprite m_SwordBody, m_SwordSoul, m_GunBody, m_GunSoul;
+    [SerializeField] private Animator switchNotification;
 
     public bool m_CanSwitch = true;
     public static bool m_HasSwitched;
@@ -66,7 +67,7 @@ public class Movement : MonoBehaviour
         Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
         float rayLength;
 
-        if (groundPlane.Raycast(cameraRay, out rayLength))
+        if(groundPlane.Raycast(cameraRay, out rayLength))
         {
             Vector3 pointToLook = cameraRay.GetPoint(rayLength);
             Debug.DrawLine(cameraRay.origin, pointToLook, Color.cyan);
@@ -74,7 +75,7 @@ public class Movement : MonoBehaviour
             m_PivotBody.LookAt(new Vector3(pointToLook.x, m_PivotBody.position.y, pointToLook.z));
             m_PivotSoul.LookAt(new Vector3(pointToLook.x, m_PivotSoul.position.y, pointToLook.z));
 
-            if (pointToLook.x > transform.position.x)
+            if(pointToLook.x > transform.position.x)
             {
                 m_BodySprite.flipX = false;
             }
@@ -84,7 +85,7 @@ public class Movement : MonoBehaviour
                 m_BodySprite.flipX = true;
             }
 
-            if (pointToLook.x > m_PivotSoul.position.x)
+            if(pointToLook.x > m_PivotSoul.position.x)
             {
                 m_SoulSprite.flipX = false;
             }
@@ -96,17 +97,18 @@ public class Movement : MonoBehaviour
         }
         //
 
-        if (m_SwitchCooldown.Expired)
+
+        if(Input.GetMouseButtonUp(1))
         {
-            if (Input.GetMouseButtonUp(1))
+            if(m_CanSwitch)
             {
-                if (m_CanSwitch)
+                if(m_SwitchCooldown.Expired)
                 {
                     m_IsSoul = !m_IsSoul;
                     m_HasSwitched = true;
 
                     //Sword guy wordt soul
-                    if (m_IsSoul)
+                    if(m_IsSoul)
                     {
                         transform.GetComponent<MeshRenderer>().material = m_SoulColor;
                         m_Soul.GetComponent<MeshRenderer>().material = m_BodyColor;
@@ -143,38 +145,42 @@ public class Movement : MonoBehaviour
 
                     m_SwitchCooldown.Restart();
                 }
-
-                m_CanSwitch = true;
             }
+            else
+            {
+                switchNotification.SetTrigger("Play");
+            }
+
+            m_CanSwitch = true;
         }
     }
 
     private void FixedUpdate()
     {
         //Hiermee kan de speler met de WASD en/of Pijltjes toetsen rond bewegen.
-        if (!m_IsSoul)
+        if(!m_IsSoul)
         {
-            if (Input.GetAxisRaw("Horizontal") != 0)
+            if(Input.GetAxisRaw("Horizontal") != 0)
             {
-                if (Input.GetAxisRaw("Horizontal") > 0)
+                if(Input.GetAxisRaw("Horizontal") > 0)
                 {
                     transform.Translate(Vector3.right * m_Speed * Time.deltaTime, Space.World);
                 }
 
-                else if (Input.GetAxisRaw("Horizontal") < 0)
+                else if(Input.GetAxisRaw("Horizontal") < 0)
                 {
                     transform.Translate(Vector3.left * m_Speed * Time.deltaTime, Space.World);
                 }
             }
 
-            if (Input.GetAxisRaw("Vertical") != 0)
+            if(Input.GetAxisRaw("Vertical") != 0)
             {
-                if (Input.GetAxisRaw("Vertical") > 0)
+                if(Input.GetAxisRaw("Vertical") > 0)
                 {
                     transform.Translate(Vector3.forward * m_Speed * Time.deltaTime, Space.World);
                 }
 
-                else if (Input.GetAxisRaw("Vertical") < 0)
+                else if(Input.GetAxisRaw("Vertical") < 0)
                 {
                     transform.Translate(Vector3.back * m_Speed * Time.deltaTime, Space.World);
                 }
@@ -182,7 +188,7 @@ public class Movement : MonoBehaviour
 
             m_Soul.position = new Vector3(-transform.position.x, 0, -transform.position.z);
 
-            if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
+            if(Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
             {
                 m_BodyAnim.SetBool("Walking", true);
                 m_SoulAnim.SetBool("Floating", true);
@@ -200,27 +206,27 @@ public class Movement : MonoBehaviour
 
         else
         {
-            if (Input.GetAxisRaw("Horizontal") != 0)
+            if(Input.GetAxisRaw("Horizontal") != 0)
             {
-                if (Input.GetAxisRaw("Horizontal") > 0)
+                if(Input.GetAxisRaw("Horizontal") > 0)
                 {
                     m_Soul.Translate(Vector3.right * m_Speed * Time.deltaTime, Space.World);
                 }
 
-                else if (Input.GetAxisRaw("Horizontal") < 0)
+                else if(Input.GetAxisRaw("Horizontal") < 0)
                 {
                     m_Soul.Translate(Vector3.left * m_Speed * Time.deltaTime, Space.World);
                 }
             }
 
-            if (Input.GetAxisRaw("Vertical") != 0)
+            if(Input.GetAxisRaw("Vertical") != 0)
             {
-                if (Input.GetAxisRaw("Vertical") > 0)
+                if(Input.GetAxisRaw("Vertical") > 0)
                 {
                     m_Soul.Translate(Vector3.forward * m_Speed * Time.deltaTime, Space.World);
                 }
 
-                else if (Input.GetAxisRaw("Vertical") < 0)
+                else if(Input.GetAxisRaw("Vertical") < 0)
                 {
                     m_Soul.Translate(Vector3.back * m_Speed * Time.deltaTime, Space.World);
                 }
@@ -228,7 +234,7 @@ public class Movement : MonoBehaviour
 
             transform.position = new Vector3(-m_Soul.position.x, 0, -m_Soul.position.z);
 
-            if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
+            if(Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
             {
                 m_BodyAnim.SetBool("Floating", true);
                 m_SoulAnim.SetBool("Walking", true);
