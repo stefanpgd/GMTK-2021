@@ -6333,6 +6333,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1927693041}
     m_Modifications:
+    - target: {fileID: 7824034111082608226, guid: f77d2a98f01d1a34f9c75191bb7dd726, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1299592732}
     - target: {fileID: 7824034111082608284, guid: f77d2a98f01d1a34f9c75191bb7dd726, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
