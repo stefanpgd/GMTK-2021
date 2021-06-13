@@ -134,6 +134,7 @@ MonoBehaviour:
   m_Blood: {fileID: 2002940431061111726, guid: 1d9b66bfd70102540ae00fb803ca5720, type: 3}
   m_Bones: {fileID: 5455827874701040172, guid: f26ee54b700bc064cae154f4f91b9549, type: 3}
   projectile: {fileID: 453783570838632555, guid: b6a276a85aaa0e048bd3a1e65a422b58, type: 3}
+  healPickup: {fileID: 1823573216289616363, guid: 43e1f5ebf1fd7854699fbdb7993d9ec0, type: 3}
   speed: 0.025
   wallAvoidanceSpeed: 2
   maxForce: 2
