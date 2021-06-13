@@ -11,14 +11,17 @@ public class ExitDoor : MonoBehaviour
     [SerializeField] private Sprite m_Closed, m_Open;
 
     private PuzzleManager puzzleManager;
+    private AIManager aiManager;
 
     private bool doorIsOpen = false;
     private bool bodyIsOnDoor = false;
     private bool soulIsOnDoor = false;
+    private bool doorIsUsed = false;
 
     private void Start()
     {
         puzzleManager = PuzzleManager.Instance;
+        aiManager = AIManager.Instance;
     }
 
     private void Update()
@@ -36,14 +39,18 @@ public class ExitDoor : MonoBehaviour
         }
         else
         {
-            stateText.text = "Exit Door Open";
-            m_Door.sprite = m_Open;
-
-            if (bodyIsOnDoor && soulIsOnDoor)
+            if(!doorIsUsed)
             {
-                playerEndAnimator.enabled = true;
-                Debug.Log("Level Completed, go to next level");
-                LevelSwitchManager.Instance.LevelFinished(levelToSwitchTo);
+                stateText.text = "Exit Door Open";
+                m_Door.sprite = m_Open;
+
+                if(bodyIsOnDoor && soulIsOnDoor)
+                {
+                    playerEndAnimator.enabled = true;
+                    Debug.Log("Level Completed, go to next level");
+                    LevelSwitchManager.Instance.LevelFinished(levelToSwitchTo);
+                    doorIsUsed = true;
+                }
             }
         }
     }
