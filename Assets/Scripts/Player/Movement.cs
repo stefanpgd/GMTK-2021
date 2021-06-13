@@ -14,6 +14,8 @@ public class Movement : MonoBehaviour
     [SerializeField] private Sprite m_SwordBody, m_SwordSoul, m_GunBody, m_GunSoul;
     [SerializeField] private Animator switchNotification;
 
+    [SerializeField] private Rigidbody m_SoulRigid;
+
     public bool m_CanSwitch = true;
     public static bool m_HasSwitched;
 
@@ -22,10 +24,16 @@ public class Movement : MonoBehaviour
     private Camera m_MainCamera;
     private Timer m_SwitchCooldown;
 
+    private Rigidbody m_Rigidbody;
+
     void Start()
     {
         m_MainCamera = Camera.main;
         m_SwitchCooldown = new Timer(m_SwitchCooldownTime);
+
+        m_Rigidbody = GetComponent<Rigidbody>();
+
+        m_Rigidbody.maxDepenetrationVelocity = m_Speed;
     }
 
     /*
@@ -160,16 +168,23 @@ public class Movement : MonoBehaviour
         //Hiermee kan de speler met de WASD en/of Pijltjes toetsen rond bewegen.
         if(!m_IsSoul)
         {
-            if(Input.GetAxisRaw("Horizontal") != 0)
+            if (m_Rigidbody.velocity.magnitude > m_Speed)
+            {
+                m_Rigidbody.velocity = m_Rigidbody.velocity.normalized * m_Speed;
+            }
+
+            if (Input.GetAxisRaw("Horizontal") != 0)
             {
                 if(Input.GetAxisRaw("Horizontal") > 0)
                 {
-                    transform.Translate(Vector3.right * m_Speed * Time.deltaTime, Space.World);
+                    //transform.Translate(Vector3.right * m_Speed * Time.deltaTime, Space.World);
+                    m_Rigidbody.velocity += transform.right * 100 * Time.deltaTime;
                 }
 
                 else if(Input.GetAxisRaw("Horizontal") < 0)
                 {
-                    transform.Translate(Vector3.left * m_Speed * Time.deltaTime, Space.World);
+                    //transform.Translate(Vector3.left * m_Speed * Time.deltaTime, Space.World);
+                    m_Rigidbody.velocity += -transform.right * 100 * Time.deltaTime;
                 }
             }
 
@@ -177,12 +192,14 @@ public class Movement : MonoBehaviour
             {
                 if(Input.GetAxisRaw("Vertical") > 0)
                 {
-                    transform.Translate(Vector3.forward * m_Speed * Time.deltaTime, Space.World);
+                    //transform.Translate(Vector3.forward * m_Speed * Time.deltaTime, Space.World);
+                    m_Rigidbody.velocity += transform.forward * 100 * Time.deltaTime;
                 }
 
                 else if(Input.GetAxisRaw("Vertical") < 0)
                 {
-                    transform.Translate(Vector3.back * m_Speed * Time.deltaTime, Space.World);
+                    //transform.Translate(Vector3.back * m_Speed * Time.deltaTime, Space.World);
+                    m_Rigidbody.velocity += -transform.forward * 100 * Time.deltaTime;
                 }
             }
 
@@ -206,16 +223,23 @@ public class Movement : MonoBehaviour
 
         else
         {
-            if(Input.GetAxisRaw("Horizontal") != 0)
+            if (m_SoulRigid.velocity.magnitude > m_Speed)
+            {
+                m_SoulRigid.velocity = m_SoulRigid.velocity.normalized * m_Speed;
+            }
+
+            if (Input.GetAxisRaw("Horizontal") != 0)
             {
                 if(Input.GetAxisRaw("Horizontal") > 0)
                 {
-                    m_Soul.Translate(Vector3.right * m_Speed * Time.deltaTime, Space.World);
+                    //m_Soul.Translate(Vector3.right * m_Speed * Time.deltaTime, Space.World);
+                    m_SoulRigid.velocity += transform.right * 100 * Time.deltaTime;
                 }
 
                 else if(Input.GetAxisRaw("Horizontal") < 0)
                 {
-                    m_Soul.Translate(Vector3.left * m_Speed * Time.deltaTime, Space.World);
+                    //m_Soul.Translate(Vector3.left * m_Speed * Time.deltaTime, Space.World);
+                    m_SoulRigid.velocity += -transform.right * 100 * Time.deltaTime;
                 }
             }
 
@@ -223,12 +247,14 @@ public class Movement : MonoBehaviour
             {
                 if(Input.GetAxisRaw("Vertical") > 0)
                 {
-                    m_Soul.Translate(Vector3.forward * m_Speed * Time.deltaTime, Space.World);
+                    //m_Soul.Translate(Vector3.forward * m_Speed * Time.deltaTime, Space.World);
+                    m_SoulRigid.velocity += transform.forward * 100 * Time.deltaTime;
                 }
 
                 else if(Input.GetAxisRaw("Vertical") < 0)
                 {
-                    m_Soul.Translate(Vector3.back * m_Speed * Time.deltaTime, Space.World);
+                    //m_Soul.Translate(Vector3.back * m_Speed * Time.deltaTime, Space.World);
+                    m_SoulRigid.velocity += -transform.forward * 100 * Time.deltaTime;
                 }
             }
 
