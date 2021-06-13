@@ -59,7 +59,7 @@ MonoBehaviour:
   playerBody: {fileID: 0}
   playerSoul: {fileID: 0}
   shootingPoint: {fileID: 0}
-  attackCooldownTimer: 0
+  attackCooldownTimer: 4
   projectileSpeed: 0
   bodyHealth: 3
   soulHealth: 4
